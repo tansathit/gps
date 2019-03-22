@@ -2,13 +2,13 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>ระบบเก็บข้อมูลการจัดส่งสินค้า</title>
+  <title>จัดส่งตามตำแหน่งบนแผนที่</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta property="og:title" content="Leaflet and Google Form GPS Data Collection" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aogdp.github.io/gpsform/" />
   <meta property="og:image" content="https://raw.githubusercontent.com/aogdp/gpsform/gh-pages/img/gpsform.png" />
-  <meta property="og:description" content="ใช้สำหรับบันทึกเวลาในแต่ละขั้นตอนการจัดส่งสินค้าตามใบสั่งซื้อ" />
+  <meta property="og:description" content="ใช้สำหรับให้ลูกค้าระบุตำแหน่งในการจัดส่งสินค้า" />
   <!--Bootstrap for form-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -169,7 +169,7 @@
       lat = e.latlng.lat;
       lng = e.latlng.lng;
       inLayer = 1;
-      var form = '<div id="formdiv"><form role="form" id="projectform"><div class="form-group"><div class="form-group"><label for="description" class="requiredField">ที่อยู่ในการจัดส่ง</label><textarea class="form-control" rows="3" id="descrip" placeholder="รายละเอียดที่อยู่ในการจัดส่ง (ดึงมาจากที่ Registered ไว้"></textarea></div><em class="text-muted">กดปุ่มด้านล่างเพื่อจัดส่ง</em><div id="formHelp"></div><hr /><button type="submit" id="submit" class="btn btn-default btn-sm">จัดส่งตามที่อยู่นี้</button></form></div>';
+      var form = '<div id="formdiv"><form role="form" id="projectform"><div class="form-group"><div class="form-group"><label for="description" class="requiredField">รายละเอียดที่อยู่ในการจัดส่ง</label><textarea class="form-control" rows="3" id="descrip" placeholder="ใส่รายละเอียดเพิ่มเติม... (ดึงมาจากที่ Registered ไว้"></textarea></div><em class="text-muted">กดปุ่มด้านล่างเพื่อจัดส่ง</em><div id="formHelp"></div><hr /><button type="submit" id="submit" class="btn btn-default btn-sm">จัดส่งตามที่อยู่นี้</button></form></div>';
 	    
       if (e.accuracy) {
         var radius = (e.accuracy / 2) * 3.28084;
