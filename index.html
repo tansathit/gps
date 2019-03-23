@@ -227,20 +227,7 @@
       lat = e.latlng.lat;
       lng = e.latlng.lng;
       inLayer = 1;
-	    
-      var link = orderForm;
-	for (var value in source) {
-		if (source[value][1] == undefined) {
-			continue;
-		}
-		if (value == 'method') {
-			link += "&"+ source[value][0] + "=จัดส่งตามที่อยู่"
-		}
-		else {
-			link += "&"+ source[value][0] + "=" + source[value][1];
-		}
-	}
-	    
+
       var form = '<div id="formdiv"><form role="form" id="projectform"><div class="form-group"><div class="form-group"><label for="description" class="requiredField">รายละเอียดที่อยู่ในการจัดส่ง</label><textarea class="form-control" rows="3" id="descrip" placeholder="ใส่รายละเอียดเพิ่มเติม....">' + source['address'][1] + '</textarea></div><em class="text-muted">กดปุ่มด้านล่างเพื่อจัดส่ง</em><div id="formHelp"></div><hr /><button type="submit" id="submit" class="btn btn-default btn-sm">จัดส่งตามที่อยู่นี้</button></form></div>';
       if (e.accuracy) {
         var radius = (e.accuracy / 2) * 3.28084;
@@ -267,23 +254,27 @@
             var foundError = 0;
 
 	    alert(descrip)
-		
+	      var link = orderForm;
+		for (var value in source) {
+			if (source[value][1] == undefined) {
+				continue;
+			}
+			if (value == 'method') {
+				link += "&"+ source[value][0] + "=จัดส่งตามที่อยู่"
+			}
+			else if (value == 'address') {
+				link += "&"+ source[value][0] + "=" + descrip;
+			}
+			else {
+				link += "&"+ source[value][0] + "=" + source[value][1];
+			}
+		}
             //console.log(descrip);
             if (descrip) {
-              //console.log(descrip);
-              
-              if (descrip == "Order Completed") {
-                if (method && ridername) {
-                  foundError = 0;
-                } else {
-                  foundError = 1;
-                  $('#formHelp').html('<span style="color:red;">กรุณาใส่ข้อมูลให้ครบถ้วน</span>')
-                }
-              }
-
-              
               if (foundError == 0) {
 	        alert("REDIRECT");
+		alert(link);
+		location.href = link;
                 //$('#formdiv').html('<iframe src="https://docs.google.com/forms/d/e/' + formId + '/formResponse?entry.' + formLat + '=' + lat + '&entry.' + formLng + '=' + lng + '&entry.'+ formText + '=' + descrip + '&entry.'+ formOrderNo + '=' + orderno + '&entry.'+ formMethod + '=' + method + '&entry.'+ formRiderName + '=' + ridername + '&submit=Submit" seamless scrolling="no" style="overflow:hidden;height:375px;border:lightgray solid thin;"></iframe>');
               }
             } else {
