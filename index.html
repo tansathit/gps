@@ -100,6 +100,8 @@
 
     var inLayer = 0;
     var currentLocation = 0;
+    var selected_store = globalHash['entry.690413346'];
+    var address = globalHash['entry.1152803505'];
 	  
     function popUpFeature(feature, layer){
       if (feature.properties.fill == "") {
@@ -155,12 +157,14 @@
     		markerObj[key] = L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(key);
   	}
 	
-	var selected_store = globalHash['entry.690413346'];
 	if (selected_store != undefined) {
 		if (selected_store in stores) {
 			map.setView(stores[selected_store], 18);
 			markerObj[selected_store].openPopup();
 		}
+	}
+	if (address == undefined) {
+		address = "ใส่รายละเอียดเพิ่มเติม...."
 	}
 
     //Add Location Options - override the plugin default popup and circle
@@ -195,8 +199,8 @@
       lat = e.latlng.lat;
       lng = e.latlng.lng;
       inLayer = 1;
-      var form = '<div id="formdiv"><form role="form" id="projectform"><div class="form-group"><div class="form-group"><label for="description" class="requiredField">รายละเอียดที่อยู่ในการจัดส่ง</label><textarea class="form-control" rows="3" id="descrip" placeholder="ใส่รายละเอียดเพิ่มเติม... (ดึงมาจากที่ Registered ไว้)"></textarea></div><em class="text-muted">กดปุ่มด้านล่างเพื่อจัดส่ง</em><div id="formHelp"></div><hr /><button type="submit" id="submit" class="btn btn-default btn-sm">จัดส่งตามที่อยู่นี้</button></form></div>';
-
+      var form = '<div id="formdiv"><form role="form" id="projectform"><div class="form-group"><div class="form-group"><label for="description" class="requiredField">รายละเอียดที่อยู่ในการจัดส่ง</label><textarea class="form-control" rows="3" id="descrip" placeholder="' + address + '"></textarea></div><em class="text-muted">กดปุ่มด้านล่างเพื่อจัดส่ง</em><div id="formHelp"></div><hr /><button type="submit" id="submit" class="btn btn-default btn-sm">จัดส่งตามที่อยู่นี้</button></form></div>';
+	    
       if (e.accuracy) {
         var radius = (e.accuracy / 2) * 3.28084;
         circle = L.circle(e.latlng, radius).addTo(map);
