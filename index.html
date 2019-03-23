@@ -153,11 +153,11 @@
 	for (var key in stores) {
     		L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(key);
   	}
-		
-	if ('entry.690413346' in globalHash) {
+	
+	var key = globalHash['entry.690413346'];
+	if !(key == undefined) {
 		alert("ARMTEST");
 		alert(globalHash['entry.690413346']);
-		var key = globalHash['entry.690413346'];
 
 		if (key in stores) {
 			alert(stores[key]);
