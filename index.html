@@ -154,14 +154,6 @@
     var onEachFeature = function(feature, layer) {
         layer.on({
             click: function(e) {
-		     if (marker) {
-			marker.on('popupclose', function(e) {
-			  map.removeLayer(marker);
-			  if (map.hasLayer(circle)) {
-			    map.removeLayer(circle);
-			  }
-			});
-		     }
                     collectData(e);
                   }
         });
@@ -273,6 +265,10 @@
       if (e.accuracy) {
         var radius = (e.accuracy / 2) * 3.28084;
         circle = L.circle(e.latlng, radius).addTo(map);
+      }
+	    
+      if (marker) {
+          map.removeLayer(marker);
       }
       marker = L.marker(e.latlng).addTo(map)
       .bindPopup(form, {maxWidth:400});
