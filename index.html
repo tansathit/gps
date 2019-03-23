@@ -167,7 +167,7 @@
 		for (var value in source) {
 			//link += "&"+ source[value][0] + "=" + source[value][1];
 		}
-		var fromcc = '<center><b>' + key + '</b><br><form action="' + link +'"><input type="submit" value="รับที่ร้านนี้" /></form></center>';
+		var fromcc = '<center><b>' + key + '</b><br><form action="https://www.google.com"><input type="submit" value="รับที่ร้านนี้" /></form></center>';
     		markerObj[key] = L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(fromcc);
   	}
 	
