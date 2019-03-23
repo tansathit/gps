@@ -165,7 +165,7 @@
 	for (var key in stores) {
 		var link = "https://docs.google.com/forms/d/e/1FAIpQLSc28osp_tKOb4nwf6JM4aBiGdtr3PI28ckZqTOX7Kij9G57UQ/viewform?usp=pp_url";
 		for (var value in source) {
-			link += "&"+ source[value][0] + "=" + source[value][1]
+			link += "&"+ source[value][0] + "=" + source[value][1];
 		}
 		var fromcc = '<center><b>' + key + '</b><br><form action="' + link +'"><input type="submit" value="รับที่ร้านนี้" /></form></center>';
     		markerObj[key] = L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(fromcc);
