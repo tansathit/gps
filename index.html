@@ -154,7 +154,7 @@
 	};
 	var markerObj = {};  
 	for (var key in stores) {
-		var fromcc = '<b>' + key + '</b><br><form action="http://google.com"><input type="submit" value="รับที่ร้านนี้" /></form>';
+		var fromcc = '<center><b>' + key + '</b><br><form action="http://google.com"><input type="submit" value="รับที่ร้านนี้" /></form></center>';
     		markerObj[key] = L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(fromcc);
   	}
 	
