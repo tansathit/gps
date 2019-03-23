@@ -285,16 +285,8 @@
 			if (record == "yes") {
 				//record to register file
 				var submitRegisterLink = 'https://docs.google.com/forms/d/e/' + registerId + '/formResponse?submit=Submit';
-				
-				//var firstParam = 1;
+/*				
 				for (var value in registerForm) {
-					/*
-					var ampersand = "&";
-					if (firstParam == 1) {
-						ampersand = "";
-						firstParam = 0;
-					}
-					*/
 					if (registerForm[value][1] == undefined) {
 						continue;
 					}
@@ -310,7 +302,7 @@
 					else {
 						link += "&" + registerForm[value][0] + "=" + registerForm[value][1];
 					}
-
+*/
 				alert(submitRegisterLink);
 			}
 			location.href = link;
