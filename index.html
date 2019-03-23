@@ -281,7 +281,6 @@
 	$('body').on('submit','#projectform', function(event) {
         //$('#projectform').submit(function(event) {
             	event.preventDefault();
-		alert(lat+","+lng);
             	var descrip = $('#descrip').val();
 		var record = $( "input[type=checkbox][name=record]:checked" ).val();
 		
@@ -333,11 +332,9 @@
 					}
 				}
 				submitRegisterLink += '&submit=Submit';
-				//location.href = submitRegisterLink
 				$('#formdiv').html('<iframe src="' + submitRegisterLink + '" seamless scrolling="no" style="overflow:hidden;height:375px;border:lightgray solid thin;"></iframe>');
 			}
-			//location.href = link;
-			alert(link);
+			location.href = link;
 		}
 		else {
                		$('#formHelp').html('<span style="color:red;">กรุณาระบุรายละเอียดที่อยู่</span>')
