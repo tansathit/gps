@@ -114,9 +114,9 @@
     */
     var registerForm = {
     	'tel'		: ['entry.911904303',globalHash['entry.549659197']],
-	'address'	: ['entry.1188217078',globalHash['entry.1188217078']],
-	'latitude'	: ['entry.1774342700',globalHash['entry.1774342700']],
-	'longitude'	: ['entry.1887630303',globalHash['entry.1887630303']],
+	'address'	: ['entry.1188217078',globalHash['desc']],
+	'latitude'	: ['entry.1774342700',globalHash['lat']],
+	'longitude'	: ['entry.1887630303',globalHash['lng']],
     };
 	  
     //Add a basemap
@@ -217,8 +217,14 @@
 			markerObj[source['selected_store'][1]].openPopup();
 		}
 	}
-	if (source['address'][1] == undefined) {
-		source['address'][1] = ""
+	
+	// เช็คจาก Latlng ก่อน ถ้าไม่มีค่อยเอาจาก register
+	var address_inbox = registerForm['address'][1];
+	if (address_inbox == undefined) {
+		address_inbox = source['address'][1];
+		if (address_inbox == undefined) {
+			address_inbox = "";
+		}
 	}
 
     //Add Location Options - override the plugin default popup and circle
@@ -254,7 +260,7 @@
       lng = e.latlng.lng;
       inLayer = 1;
 
-      var form = '<div id="formdiv"><form role="form" id="projectform"><div class="form-group"><div class="form-group"><label for="description" class="requiredField">รายละเอียดที่อยู่ในการจัดส่ง</label><textarea class="form-control" rows="3" id="descrip" placeholder="กรุณาระบุรายละเอียดเช่น บ้านเลขที่, อาคาร, ชั้น, แผนก, อื่นๆ เพื่อให้ง่ายต่อการจัดส่ง">' + source['address'][1] + '</textarea></div><input type="checkbox" name="record" value="yes"> บันทีกที่อยู่นี้ไว้ใช้ครั้งถัดไป<br><em class="text-muted">กดปุ่มด้านล่างเพื่อจัดส่ง</em><div id="formHelp"></div><hr /><center><button type="submit" id="submit" class="btn btn-default btn-sm">จัดส่งตามที่อยู่นี้</button></center></form></div>';
+      var form = '<div id="formdiv"><form role="form" id="projectform"><div class="form-group"><div class="form-group"><label for="description" class="requiredField">รายละเอียดที่อยู่ในการจัดส่ง</label><textarea class="form-control" rows="3" id="descrip" placeholder="กรุณาระบุรายละเอียดเช่น บ้านเลขที่, อาคาร, ชั้น, แผนก, อื่นๆ เพื่อให้ง่ายต่อการจัดส่ง">' + address_inbox + '</textarea></div><input type="checkbox" name="record" value="yes"> บันทีกที่อยู่นี้ไว้ใช้ครั้งถัดไป<br><em class="text-muted">กดปุ่มด้านล่างเพื่อจัดส่ง</em><div id="formHelp"></div><hr /><center><button type="submit" id="submit" class="btn btn-default btn-sm">จัดส่งตามที่อยู่นี้</button></center></form></div>';
 
       if (e.accuracy) {
         var radius = (e.accuracy / 2) * 3.28084;
