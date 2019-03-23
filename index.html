@@ -171,10 +171,10 @@
     		markerObj[key] = L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(fromcc);
   	}
 	
-	if (source['selected_store'] != undefined) {
-		if (source['selected_store'] in stores) {
-			map.setView(stores[source['selected_store']], 18);
-			markerObj[source['selected_store']].openPopup();
+	if (source['selected_store'][1] != undefined) {
+		if (source['selected_store'][1] in stores) {
+			map.setView(stores[source['selected_store'][1]], 18);
+			markerObj[source['selected_store'][1]].openPopup();
 		}
 	}
 	if (address == undefined) {
