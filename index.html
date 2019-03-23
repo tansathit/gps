@@ -99,6 +99,7 @@
     }).addTo(map);
 
     var inLayer = 0;
+    var currentLocation = 0;
 	  
     function popUpFeature(feature, layer){
       if (feature.properties.fill == "") {
@@ -161,7 +162,7 @@
 
 		if (selected_store in stores) {
 			alert(stores[selected_store]);
-			map.setView([13.72048952519465, 100.50171732902527], 18);
+			map.setView(stores[selected_store], 16);
 		}
 	}
 
@@ -262,7 +263,9 @@
     });
 	  
   setTimeout(function() {
-    if(lat) {
+    if(currentLocation == 0){
+      return false;
+    else if(lat) {
       return false;
     }else{
       console.log('no loc');
@@ -277,7 +280,6 @@
     });
     */
 
-    //map.setView([13.72048952519465, 100.50171732902527], 8);
     map.on('click', function(e) {
       getData(e);
     });
