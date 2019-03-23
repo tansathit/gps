@@ -154,16 +154,23 @@
     		L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(key);
   	}
 	
-	var key = globalHash['entry.690413346'];
-	if (key != undefined) {
+	var selected_store = globalHash['entry.690413346'];
+	if (selected_store != undefined) {
 		alert("ARMTEST");
 		alert(globalHash['entry.690413346']);
 
-		if (key in stores) {
-			alert(stores[key]);
+		if (selected_store in stores) {
+			alert(stores[selected_store]);
 		}
 	}
-		
+	
+	function centerLeafletMapOnLatLng(map, latLngs) {
+  		var markerBounds = L.latLngBounds(latLngs);
+  		map.fitBounds(markerBounds);
+	}
+	 
+	centerLeafletMapOnLatLng(map, stores[selected_store]);
+	  
     //Add Location Options - override the plugin default popup and circle
     var locOptions = {
       drawCircle: false,
