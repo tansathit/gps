@@ -285,24 +285,23 @@
 			if (record == "yes") {
 				//record to register file
 				var submitRegisterLink = 'https://docs.google.com/forms/d/e/' + registerId + '/formResponse?submit=Submit';
-/*				
 				for (var value in registerForm) {
 					if (registerForm[value][1] == undefined) {
 						continue;
 					}
 					if (value == 'latitude') {
-						link += "&" + registerForm[value][0] + "=" + lat;
+						submitRegisterLink += "&" + registerForm[value][0] + "=" + lat;
 					}
 					else if (value == 'longitude'){
-						link += "&" + registerForm[value][0] + "=" + lng;
+						submitRegisterLink += "&" + registerForm[value][0] + "=" + lng;
 					}
 					else if (value == 'address') {
-						link += "&" + registerForm[value][0] + "=" + descrip;
+						submitRegisterLink += "&" + registerForm[value][0] + "=" + descrip;
 					}
 					else {
-						link += "&" + registerForm[value][0] + "=" + registerForm[value][1];
+						submitRegisterLink += "&" + registerForm[value][0] + "=" + registerForm[value][1];
 					}
-*/
+
 				alert(submitRegisterLink);
 			}
 			location.href = link;
