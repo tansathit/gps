@@ -102,14 +102,14 @@
     var inLayer = 0;
     var currentLocation = 0;
     var source = {
-    	'selected_store' : globalHash['entry.690413346'],
-	'line'		 : globalHash['entry.1561723974'],
-	'tel'		 : globalHash['entry.549659197'],
-	'email'		 : globalHash['entry.999662534'],
-	'time'		 : globalHash['entry.959736102'],
-	'payment'	 : globalHash['entry.543841120'],
-	'address'	 : globalHash['entry.1152803505'],
-	'allmember'	 : globalHash['entry.1250407467'],
+    	'selected_store' : ['entry.690413346',globalHash['entry.690413346']],
+	'line'		 : ['entry.1561723974',globalHash['entry.1561723974']],
+	'tel'		 : ['entry.549659197',globalHash['entry.549659197']],
+	'email'		 : ['entry.999662534',globalHash['entry.999662534']],
+	'time'		 : ['entry.959736102',globalHash['entry.959736102']],
+	'payment'	 : ['entry.543841120',globalHash['entry.543841120']],
+	'address'	 : ['entry.1152803505',globalHash['entry.1152803505']],
+	'allmember'	 : ['entry.1250407467',globalHash['entry.1250407467']],
     };
 	  
     function popUpFeature(feature, layer){
@@ -163,7 +163,11 @@
 	};
 	var markerObj = {};  
 	for (var key in stores) {
-		var fromcc = '<center><b>' + key + '</b><br><form action="http://google.com"><input type="submit" value="รับที่ร้านนี้" /></form></center>';
+		var link = "https://docs.google.com/forms/d/e/1FAIpQLSc28osp_tKOb4nwf6JM4aBiGdtr3PI28ckZqTOX7Kij9G57UQ/viewform?usp=pp_url";
+		for (var value in source) {
+			link += "&"+ source[value][0] + "=" + source[value][1]
+		}
+		var fromcc = '<center><b>' + key + '</b><br><form action="' + link +'"><input type="submit" value="รับที่ร้านนี้" /></form></center>';
     		markerObj[key] = L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(fromcc);
   	}
 	
