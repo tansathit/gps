@@ -174,7 +174,7 @@
     //Add Location
     var loc = L.control.locate(locOptions).addTo(map);
     //Endable Location at page load and do things once the location is found
-    loc.start();
+    //loc.start();
     var marker, circle, lat, lng; //create variables used throughout the map
    
     var popup = L.popup();
@@ -263,7 +263,6 @@
 	  
   setTimeout(function() {
     if(lat) {
-      map.setView([13.72048952519465, 100.50171732902527], 8);
       return false;
     }else{
       console.log('no loc');
@@ -278,6 +277,7 @@
     });
     */
 
+    map.setView([13.72048952519465, 100.50171732902527], 8);
     map.on('click', function(e) {
       getData(e);
     });
