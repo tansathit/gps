@@ -154,6 +154,8 @@
 	'allmember'	 : ['entry.1250407467',globalHash['entry.1250407467']],
 	'allmemberOTH'	 : ['entry.1250407467.other_option_response',globalHash['entry.1250407467.other_option_response']],
 	'method'	 : ['entry.1940904798',"รับที่ร้าน 7-11"],
+	'lat'		 : ['entry.409621440',""],
+	'lng'		 : ['entry.421844787',""],
     };
 	  
     function popUpFeature(feature, layer){
@@ -305,6 +307,12 @@
 			}
 			else if (value == 'address') {
 				link += "&"+ source[value][0] + "=" + descrip;
+			}
+			else if (value == 'lat') {
+				link += "&"+ source[value][0] + "=" + lat;
+			}
+			else if (value == 'lng') {
+				link += "&"+ source[value][0] + "=" + lng;
 			}
 			else if (source[value][1] == undefined) {
 				continue;
