@@ -229,10 +229,12 @@
       alert("collectData Start");
       //console.log(e);
       lat = e.latlng.lat;
+      alert("collectData Start1");
       lng = e.latlng.lng;
+      alert("collectData Start2");
       inLayer = 1;
       var form = '<div id="formdiv"><form role="form" id="projectform"><div class="form-group"><div class="form-group"><label for="description" class="requiredField">รายละเอียดที่อยู่ในการจัดส่ง</label><textarea class="form-control" rows="3" id="descrip" placeholder="ใส่รายละเอียดเพิ่มเติม....">' + address + '</textarea></div><em class="text-muted">กดปุ่มด้านล่างเพื่อจัดส่ง</em><div id="formHelp"></div><hr /><button type="submit" id="submit" class="btn btn-default btn-sm">จัดส่งตามที่อยู่นี้</button></form></div>';
-	    
+      alert("collectData Start3");
       if (e.accuracy) {
         var radius = (e.accuracy / 2) * 3.28084;
         circle = L.circle(e.latlng, radius).addTo(map);
