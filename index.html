@@ -258,13 +258,18 @@
       marker.on('popupopen', function() {
         $('#projectform').submit(function(event) {
             event.preventDefault();
-            var descrip = $( "input[type=radio][name=options]:checked" ).val();
-            var orderno = $('#descrip').val();
+
+            //var descrip = $( "input[type=radio][name=options]:checked" ).val();
+            var descrip = $('#descrip').val();
             var method = $( "input[type=radio][name=method]:checked" ).val();
             var ridername = $('#ridername').val();
+
             var foundError = 0;
+
+	    alert(descrip)
+		
             //console.log(descrip);
-            if (descrip && orderno) {
+            if (descrip) {
               //console.log(descrip);
               
               if (descrip == "Order Completed") {
@@ -275,6 +280,7 @@
                   $('#formHelp').html('<span style="color:red;">กรุณาใส่ข้อมูลให้ครบถ้วน</span>')
                 }
               }
+
               
               if (foundError == 0) {
 	        alert("REDIRECT");
