@@ -154,7 +154,8 @@
     		L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(key);
   	}
 		
-	if (globalHash['entry.690413346']) {
+	if ('entry.690413346' in globalHash) {
+		alert("ARMTEST")
 		alert(globalHash['entry.690413346']);
 	}
 		
