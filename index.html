@@ -267,10 +267,6 @@
         circle = L.circle(e.latlng, radius).addTo(map);
       }
 	    
-      popup
-	.setLatLng(e.latlng)
-	.setContent("<b>พื้นที่นี้ยังไม่รองรับการจัดส่ง</b><br>(" + e.latlng.toString() + ")")
-	.openOn(map);
       marker = L.marker(e.latlng).addTo(map)
       .bindPopup(form, {maxWidth:400});
 
@@ -281,7 +277,9 @@
       }, 100);
 
       marker.on('popupopen', function() {
+	      alert("marker popup");
         $('#projectform').submit(function(event) {
+		alert("get event submit");
             	event.preventDefault();
             	var descrip = $('#descrip').val();
 		var record = $( "input[type=checkbox][name=record]:checked" ).val();
