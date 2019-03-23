@@ -347,6 +347,15 @@
           });
       });
 
+	$('body').on('submit','#projectform', function() {
+	    if (true) {  // for testing, always go through the failure path
+	      alert("Invalid entry");
+	      return false;
+	    } else {
+	      return true;
+	    }
+	}
+	    
       if (marker) {
         marker.on('popupclose', function(e) {
           map.removeLayer(marker);
