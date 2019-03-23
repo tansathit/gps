@@ -154,7 +154,8 @@
 	};
 	var markerObj = {};  
 	for (var key in stores) {
-    		markerObj[key] = L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(key);
+		var fromcc = '<b>' + key + '</b><br><form action="http://google.com"><input type="submit" value="รับที่ร้านนี้" /></form>';
+    		markerObj[key] = L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(fromcc);
   	}
 	
 	if (selected_store != undefined) {
