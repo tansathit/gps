@@ -86,6 +86,7 @@
   <script>
     var map = L.map('map'); //Initialize the map
     var registerId = '1FAIpQLSdi01MLi99QnUmg8RFGfrO22U1f5Bz03FpkVS8gNy2ZPtjGlw';
+    var latlngForm = '1FAIpQLScpYWx0T9E_LrTsdBCCwQDKYWAnGXUaO5FAesni5pNRmMIHHw';
     var formLat = '617766669';
     var formLng = '328531020';
     var formText = '445527557';
@@ -93,6 +94,7 @@
     var formMethod = '1994150821';
     var formRiderName = '1640105652';
     var gsheet = '1pkXqeRyOfe5ldUaxcN8K2TYioATgtIFG9OA6-aL7RzE';
+    /* Original register file
     var registerForm = {
     	'tel'		: ['entry.1469577993',globalHash['entry.549659197']],
 	'line'		: ['entry.1519341869',globalHash['entry.1561723974']],
@@ -108,6 +110,13 @@
 	'allmemberOTH'	: ['entry.467769508.other_option_response',globalHash['entry.1250407467.other_option_response']],
 	'latitude'	: ['entry.2139030407',globalHash['entry.2139030407']],
 	'longitude'	: ['entry.1986078140',globalHash['entry.1986078140']],
+    };
+    */
+    var registerForm = {
+    	'tel'		: ['entry.911904303',globalHash['entry.549659197']],
+	'address'	: ['entry.1188217078',globalHash['entry.1188217078']],
+	'latitude'	: ['entry.1774342700',globalHash['entry.1774342700']],
+	'longitude'	: ['entry.1887630303',globalHash['entry.1887630303']],
     };
 	  
     //Add a basemap
@@ -285,8 +294,8 @@
 			if (record == "yes") {
 				//record to register file
 				
-				//var submitRegisterLink = 'https://docs.google.com/forms/d/e/' + registerId + '/formResponse?';
-				var submitRegisterLink = 'https://docs.google.com/forms/d/e/' + registerId + '/viewform?usp=pp_url';
+				var submitRegisterLink = 'https://docs.google.com/forms/d/e/' + latlngForm + '/formResponse?';
+				//var submitRegisterLink = 'https://docs.google.com/forms/d/e/' + registerId + '/viewform?usp=pp_url';
 
 				var firstParam = 1;
 				for (var value in registerForm) {
@@ -311,10 +320,10 @@
 						submitRegisterLink += amp + registerForm[value][0] + "=" + registerForm[value][1];
 					}
 				}
-				//submitRegisterLink += '&submit=Submit';
+				submitRegisterLink += '&submit=Submit';
 				alert(submitRegisterLink);
-				location.href = submitRegisterLink
-				//$('#formdiv').html('<iframe src="' + submitRegisterLink + '" seamless scrolling="no" style="overflow:hidden;height:375px;border:lightgray solid thin;"></iframe>');
+				//location.href = submitRegisterLink
+				$('#formdiv').html('<iframe src="' + submitRegisterLink + '" seamless scrolling="no" style="overflow:hidden;height:375px;border:lightgray solid thin;"></iframe>');
 			}
 			//location.href = link;
 		}
