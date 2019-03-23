@@ -69,10 +69,6 @@
   //window.onload = function(){
     //document.getElementById("descrip").value = globalHash.orderno;
   //}
-  
-  for (var key in globalHash) {
-    alert(key + " = " + globalHash[key]);
-  }
     
   function yesnoCheck() {
       if (document.getElementById('option4').checked) {
@@ -148,25 +144,20 @@
     });
 	  
 		var stores = {
-			'วงแหวนบางขุนเทียน' : [13.626958630991819, 100.44395327568054],
-			'ไทยศรีซูริค' : [13.72048952519465, 100.50171732902527],
-			'บางกอกซิตี้' : [13.721776722876555, 100.53122162818909],
-			'สาทรสแควร์' : [13.72256884101737, 100.52918314933777],
+			'10747 วงแหวนบางขุนเทียน' : [13.626958630991819, 100.44395327568054],
+			'04875 อาคารไทยศรีซูริค' : [13.72048952519465, 100.50171732902527],
+			'10254 บางกอกซิตี้ - สาทร' : [13.721776722876555, 100.53122162818909],
+			'05410 สาทรสแควร์' : [13.72256884101737, 100.52918314933777],
 		};
 	  
 		for (var key in stores) {
     	L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(key);
   	}
-		/*
-	//wongwan
-	L.marker([13.626958630991819, 100.44395327568054], {icon: sevenIcon}).addTo(map).bindPopup("วงแหวนบางขุนเทียน");
-	//thaisri
-	L.marker([13.72048952519465, 100.50171732902527], {icon: sevenIcon}).addTo(map).bindPopup("ไทยศรีซูริค");
-	//Bangkokcity
-	L.marker([13.721776722876555, 100.53122162818909], {icon: sevenIcon}).addTo(map).bindPopup("บางกอกซิตี้");
-	//SathornSquare
-	L.marker([13.72256884101737, 100.52918314933777], {icon: sevenIcon}).addTo(map).bindPopup("สาทรสแควร์");
-	  */
+		
+		if (globalHash['entry.690413346']) && (globalHash['entry.690413346'] in stores) {
+			alert(globalHash['entry.690413346']);
+		}
+		
     //Add Location Options - override the plugin default popup and circle
     var locOptions = {
       drawCircle: false,
