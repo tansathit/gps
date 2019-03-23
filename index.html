@@ -164,8 +164,7 @@
 			map.setView([13.72048952519465, 100.50171732902527], 8);
 		}
 	}
-	
-	alert("ARMTEST HERE");
+
     //Add Location Options - override the plugin default popup and circle
     var locOptions = {
       drawCircle: false,
@@ -264,6 +263,7 @@
 	  
   setTimeout(function() {
     if(lat) {
+      map.setView([13.72048952519465, 100.50171732902527], 8);
       return false;
     }else{
       console.log('no loc');
