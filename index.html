@@ -277,14 +277,15 @@
 		
 	    	var link = orderForm;
 		for (var value in source) {
-			if (source[value][1] == undefined) {
-				continue;
-			}
+
 			if (value == 'method') {
 				link += "&"+ source[value][0] + "=จัดส่งตามที่อยู่";
 			}
 			else if (value == 'address') {
 				link += "&"+ source[value][0] + "=" + descrip;
+			}
+			else if (source[value][1] == undefined) {
+				continue;
 			}
 			else {
 				link += "&"+ source[value][0] + "=" + source[value][1];
@@ -304,9 +305,7 @@
 						amp = "&";
 						firstParam = 0;
 					}
-					if (registerForm[value][1] == undefined) {
-						continue;
-					}
+
 					if (value == 'latitude') {
 						submitRegisterLink += amp + registerForm[value][0] + "=" + lat;
 					}
@@ -315,6 +314,9 @@
 					}
 					else if (value == 'address') {
 						submitRegisterLink += amp + registerForm[value][0] + "=" + descrip;
+					}
+					else if (registerForm[value][1] == undefined) {
+						continue;
 					}
 					else {
 						submitRegisterLink += amp + registerForm[value][0] + "=" + registerForm[value][1];
