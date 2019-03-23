@@ -284,13 +284,15 @@
 		if (descrip) {
 			if (record == "yes") {
 				//record to register file
-				var submitRegisterLink = 'https://docs.google.com/forms/d/e/' + registerId + '/formResponse?';
+				
+				//var submitRegisterLink = 'https://docs.google.com/forms/d/e/' + registerId + '/formResponse?';
+				var submitRegisterLink = 'https://docs.google.com/forms/d/e/' + registerId + '/viewform?usp=pp_url';
 
 				var firstParam = 1;
 				for (var value in registerForm) {
 					var amp = "&";
 					if (firstParam == 1) {
-						amp = "";
+						amp = "&";
 						firstParam = 0;
 					}
 					if (registerForm[value][1] == undefined) {
