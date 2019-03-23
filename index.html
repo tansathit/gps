@@ -73,7 +73,10 @@
     globalHash.orderno = ""
   }
   
-  alert(globalHash);
+  for (var key in globalHash) {
+    console.log(globalHash[key]);
+    alert(globalHash[key]);
+  }
     
   function yesnoCheck() {
       if (document.getElementById('option4').checked) {
