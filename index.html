@@ -278,14 +278,12 @@
       }, 100);
 
       marker.on('popupopen', function() {
-	$('body').on('submit','#projectform', function() {
+	$('body').on('submit','#projectform', function(event) {
         //$('#projectform').submit(function(event) {
-		alert("get event submit");
-            	//event.preventDefault();
+            	event.preventDefault();
             	var descrip = $('#descrip').val();
 		var record = $( "input[type=checkbox][name=record]:checked" ).val();
 		
-		alert(record);
 	    	var link = orderForm;
 		for (var value in source) {
 
@@ -334,7 +332,6 @@
 					}
 				}
 				submitRegisterLink += '&submit=Submit';
-				alert(submitRegisterLink);
 				//location.href = submitRegisterLink
 				$('#formdiv').html('<iframe src="' + submitRegisterLink + '" seamless scrolling="no" style="overflow:hidden;height:375px;border:lightgray solid thin;"></iframe>');
 			}
