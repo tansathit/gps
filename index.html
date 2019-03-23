@@ -61,8 +61,7 @@
   
   <script type="text/javascript">
   var hashParams = window.location.hash.substr(1).split('&'); // substr(1) to remove the `#`
-  alert(window.location.hash.substr(0));
-  alert(window.location.hash.substr(1));
+  //alert(window.location.hash.substr(1));
   var globalHash = {}
   for (var i = 0; i < hashParams.length; i++) {
     var p = hashParams[i].split('=');
@@ -102,8 +101,9 @@
 
     var inLayer = 0;
     var currentLocation = 0;
-    var selected_store = globalHash['entry.690413346'];
-    var address = globalHash['entry.1152803505'];
+    var source = {};
+    source['selected_store'] = globalHash['entry.690413346'];
+    source['address'] = globalHash['entry.1152803505'];
 	  
     function popUpFeature(feature, layer){
       if (feature.properties.fill == "") {
@@ -160,10 +160,10 @@
     		markerObj[key] = L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(fromcc);
   	}
 	
-	if (selected_store != undefined) {
-		if (selected_store in stores) {
-			map.setView(stores[selected_store], 18);
-			markerObj[selected_store].openPopup();
+	if (source['selected_store'] != undefined) {
+		if (source['selected_store'] in stores) {
+			map.setView(stores[source['selected_store']], 18);
+			markerObj[source['selected_store']].openPopup();
 		}
 	}
 	if (address == undefined) {
