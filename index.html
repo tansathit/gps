@@ -278,9 +278,10 @@
       }, 100);
 
       marker.on('popupopen', function() {
-        $('#projectform').submit(function(event) {
+	$('body').on('submit','#projectform', function() {
+        //$('#projectform').submit(function(event) {
 		alert("get event submit");
-            	event.preventDefault();
+            	//event.preventDefault();
             	var descrip = $('#descrip').val();
 		var record = $( "input[type=checkbox][name=record]:checked" ).val();
 		
@@ -349,14 +350,6 @@
 	    
       if (marker) {
         marker.on('popupclose', function(e) {
-		$('body').on('submit','#projectform', function() {
-		    if (true) {  // for testing, always go through the failure path
-		      alert("Invalid entry");
-		      return false;
-		    } else {
-		      return true;
-		    }
-		}
 	  map.removeLayer(marker);
 	  if (map.hasLayer(circle)) {
 	    map.removeLayer(circle);
