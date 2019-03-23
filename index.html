@@ -118,7 +118,13 @@
 	'latitude'	: ['entry.1774342700',globalHash['lat']],
 	'longitude'	: ['entry.1887630303',globalHash['lng']],
     };
-	  
+    var fromRegisterButton = "";
+    if (registerForm['latitude']) {
+	fromRegisterButton = '<br><center><button onclick="flyToLatLng();">จัดส่งที่ที่เคยบันทึกไว้</button></center>';
+    }
+    function flyToLatLng() {
+    	alert("Fly!");
+    }
     //Add a basemap
     var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     	maxZoom: 18,
@@ -207,7 +213,7 @@
 			}
 		}
 
-		var formcc = '<center><b>' + key + '</b><br><button onclick="window.location.href = \'' + link + '\';">รับที่ร้านนี้</button></center>';
+		var formcc = '<center><b>' + key + '</b><br><button onclick="window.location.href = \'' + link + '\';">รับที่ร้านนี้</button></center>' + fromRegisterButton;
     		
 		markerObj[key] = L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(formcc);
   	}
