@@ -281,6 +281,7 @@
 	$('body').on('submit','#projectform', function(event) {
         //$('#projectform').submit(function(event) {
             	event.preventDefault();
+		alert(lat+","+lng);
             	var descrip = $('#descrip').val();
 		var record = $( "input[type=checkbox][name=record]:checked" ).val();
 		
