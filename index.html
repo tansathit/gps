@@ -154,6 +154,7 @@
     var onEachFeature = function(feature, layer) {
         layer.on({
             click: function(e) {
+		    map.closePopup();
                     collectData(e);
                   }
         });
@@ -277,7 +278,6 @@
       }, 100);
 
       marker.on('popupopen', function() {
-	      alert("marker popup");
         $('#projectform').submit(function(event) {
 		alert("get event submit");
             	event.preventDefault();
