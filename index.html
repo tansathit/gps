@@ -143,20 +143,20 @@
 		popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
 	  
-		var stores = {
-			'10747 วงแหวนบางขุนเทียน' : [13.626958630991819, 100.44395327568054],
-			'04875 อาคารไทยศรีซูริค' : [13.72048952519465, 100.50171732902527],
-			'10254 บางกอกซิตี้ - สาทร' : [13.721776722876555, 100.53122162818909],
-			'05410 สาทรสแควร์' : [13.72256884101737, 100.52918314933777],
-		};
+	var stores = {
+		'10747 วงแหวนบางขุนเทียน' : [13.626958630991819, 100.44395327568054],
+		'04875 อาคารไทยศรีซูริค' : [13.72048952519465, 100.50171732902527],
+		'10254 บางกอกซิตี้ - สาทร' : [13.721776722876555, 100.53122162818909],
+		'05410 สาทรสแควร์' : [13.72256884101737, 100.52918314933777],
+	};
 	  
-		for (var key in stores) {
-    	L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(key);
+	for (var key in stores) {
+    		L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(key);
   	}
 		
-		if (globalHash['entry.690413346']) && (globalHash['entry.690413346'] in stores) {
-			alert(globalHash['entry.690413346']);
-		}
+	if (globalHash['entry.690413346']) {
+		alert(globalHash['entry.690413346']);
+	}
 		
     //Add Location Options - override the plugin default popup and circle
     var locOptions = {
