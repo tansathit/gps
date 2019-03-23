@@ -85,7 +85,7 @@
   
   <script>
     var map = L.map('map'); //Initialize the map
-    var formId = 'xxxxxx';
+    var registerId = '1FAIpQLSdi01MLi99QnUmg8RFGfrO22U1f5Bz03FpkVS8gNy2ZPtjGlw';
     var formLat = '617766669';
     var formLng = '328531020';
     var formText = '445527557';
@@ -93,6 +93,23 @@
     var formMethod = '1994150821';
     var formRiderName = '1640105652';
     var gsheet = '1pkXqeRyOfe5ldUaxcN8K2TYioATgtIFG9OA6-aL7RzE';
+    var registerForm = {
+    	'tel'		: ['entry.1469577993',globalHash['entry.549659197']],
+	'line'		: ['entry.1519341869',globalHash['entry.1561723974']],
+	'email'		: ['entry.972632578',globalHash['entry.999662534']],
+	'address'	: ['entry.1102805265',globalHash['entry.1152803505']],
+	'selected_store': ['entry.1877097538',globalHash['entry.690413346']],
+	'payment'	: ['entry.1152568087',globalHash['entry.543841120']],
+	'sex'		: ['entry.1828721874',globalHash['entry.1828721874']],
+	'day'		: ['entry.748332598',globalHash['entry.748332598']],
+	'month'		: ['entry.1726768213',globalHash['entry.1726768213']],
+	'year'		: ['entry.879579647',globalHash['entry.879579647']],
+	'allmember'	: ['entry.467769508',globalHash['entry.1250407467']],
+	'allmemberOTH'	: ['entry.467769508.other_option_response',globalHash['entry.1250407467.other_option_response']],
+	'latitude'	: ['entry.2139030407',globalHash['entry.2139030407']],
+	'longitude'	: ['entry.1986078140',globalHash['entry.1986078140']],
+    };
+	  
     //Add a basemap
     var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     	maxZoom: 18,
@@ -173,7 +190,7 @@
 				continue;
 			}
 			if (value == 'selected_store') {
-				link += "&"+ source[value][0] + "=" + key
+				link += "&"+ source[value][0] + "=" + key;
 			}
 			else {
 				link += "&"+ source[value][0] + "=" + source[value][1];
@@ -249,14 +266,13 @@
             	var descrip = $('#descrip').val();
 		var record = $( "input[type=checkbox][name=record]:checked" ).val();
 		
-		alert(record)
 	    	var link = orderForm;
 		for (var value in source) {
 			if (source[value][1] == undefined) {
 				continue;
 			}
 			if (value == 'method') {
-				link += "&"+ source[value][0] + "=จัดส่งตามที่อยู่"
+				link += "&"+ source[value][0] + "=จัดส่งตามที่อยู่";
 			}
 			else if (value == 'address') {
 				link += "&"+ source[value][0] + "=" + descrip;
@@ -266,6 +282,37 @@
 			}
 		}
 		if (descrip) {
+			if (record == "yes") {
+				//record to register file
+				var submitRegisterLink = 'https://docs.google.com/forms/d/e/' + registerId + '/formResponse?submit=Submit';
+				
+				//var firstParam = 1;
+				for (var value in registerForm) {
+					/*
+					var ampersand = "&";
+					if (firstParam == 1) {
+						ampersand = "";
+						firstParam = 0;
+					}
+					*/
+					if (registerForm[value][1] == undefined) {
+						continue;
+					}
+					if (value == 'latitude') {
+						link += "&" + registerForm[value][0] + "=" + lat;
+					}
+					else if (value == 'longitude'){
+						link += "&" + registerForm[value][0] + "=" + lng;
+					}
+					else if (value == 'address') {
+						link += "&" + registerForm[value][0] + "=" + descrip;
+					}
+					else {
+						link += "&" + registerForm[value][0] + "=" + registerForm[value][1];
+					}
+
+				alert(submitRegisterLink);
+			}
 			location.href = link;
 		}
 		else {
