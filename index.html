@@ -119,11 +119,11 @@
 	'longitude'	: ['entry.1887630303',globalHash['lng']],
     };
     var fromRegisterButton = "";
-    if (registerForm['latitude']) {
+    if (registerForm['latitude'][1]) {
 	fromRegisterButton = '<br><center><button onclick="flyToLatLng();">จัดส่งที่ที่เคยบันทึกไว้</button></center>';
     }
     function flyToLatLng() {
-    	alert("Fly!");
+    	map.setView([globalHash['lat'],globalHash['lng']], 18);
     }
     //Add a basemap
     var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
