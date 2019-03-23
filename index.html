@@ -124,7 +124,16 @@
     }
     function flyToLatLng() {
     	map.flyTo([globalHash['lat'],globalHash['lng']], 18);
-	collectData(e);
+
+	var e_param = {
+		'latlng' : {
+			lat:globalHash['lat'],
+			lng:globalHash['lng']
+		}
+	};
+	function(e_param) {
+        	collectData(e_param);
+        }
     }
     //Add a basemap
     var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
