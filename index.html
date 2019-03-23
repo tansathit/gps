@@ -154,6 +154,14 @@
     var onEachFeature = function(feature, layer) {
         layer.on({
             click: function(e) {
+		     if (marker) {
+			marker.on('popupclose', function(e) {
+			  map.removeLayer(marker);
+			  if (map.hasLayer(circle)) {
+			    map.removeLayer(circle);
+			  }
+			});
+		     }
                     collectData(e);
                   }
         });
@@ -335,6 +343,7 @@
 				$('#formdiv').html('<iframe src="' + submitRegisterLink + '" seamless scrolling="no" style="overflow:hidden;height:375px;border:lightgray solid thin;"></iframe>');
 			}
 			//location.href = link;
+			alert(link);
 		}
 		else {
                		$('#formHelp').html('<span style="color:red;">กรุณาระบุรายละเอียดที่อยู่</span>')
@@ -342,7 +351,7 @@
 
           });
       });
-/*
+
       if (marker) {
         marker.on('popupclose', function(e) {
           map.removeLayer(marker);
@@ -351,7 +360,6 @@
           }
         });
       }
-      */
     }
 /*
     map.on('locationfound', function(e) {
