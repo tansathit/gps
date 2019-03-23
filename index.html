@@ -123,7 +123,8 @@
 	fromRegisterButton = '<br><center><button onclick="flyToLatLng();">จัดส่งที่ที่เคยบันทึกไว้</button></center>';
     }
     function flyToLatLng() {
-    	map.setView([globalHash['lat'],globalHash['lng']], 18);
+    	map.flyTo([globalHash['lat'],globalHash['lng']], 18);
+	collectData(e);
     }
     //Add a basemap
     var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -160,7 +161,6 @@
     var onEachFeature = function(feature, layer) {
         layer.on({
             click: function(e) {
-		    map.closePopup();
                     collectData(e);
                   }
         });
