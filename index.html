@@ -353,11 +353,11 @@
 					}
 				}
 				submitRegisterLink += '&submit=Submit';
-				//$('#formdiv').html('<iframe src="' + submitRegisterLink + '" seamless scrolling="no" style="overflow:hidden;height:375px;border:lightgray solid thin;"></iframe>');
-				location.href = submitRegisterLink;
+				$('#formdiv').html('<iframe src="' + submitRegisterLink + '" seamless scrolling="no" style="overflow:hidden;height:375px;border:lightgray solid thin;"></iframe>');
+				setTimeout(function(){
+				  alert("Recorded!");
+				}, 5000);
 			}
-			
-
 			location.href = link;
 		}
 		else {
