@@ -61,6 +61,8 @@
   
   <script type="text/javascript">
   var hashParams = window.location.hash.substr(1).split('&'); // substr(1) to remove the `#`
+  alert(window.location.hash.substr(0));
+  alert(window.location.hash.substr(1));
   var globalHash = {}
   for (var i = 0; i < hashParams.length; i++) {
     var p = hashParams[i].split('=');
