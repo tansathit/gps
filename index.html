@@ -193,8 +193,8 @@
 			markerObj[source['selected_store'][1]].openPopup();
 		}
 	}
-	if (address == undefined) {
-		address = ""
+	if (source['address'][1] == undefined) {
+		source['address'][1] = ""
 	}
 
     //Add Location Options - override the plugin default popup and circle
@@ -297,6 +297,7 @@
 */
 
     map.on('locationfound', function(e) {
+      alert("ARMTEST Location Found");
       getData(e);
     });
 	  
@@ -319,6 +320,7 @@
     */
 
     map.on('click', function(e) {
+      alert("ARMTEST CLICK");
       getData(e);
     });
 
