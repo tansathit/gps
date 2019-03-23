@@ -244,17 +244,9 @@
 
       marker.on('popupopen', function() {
         $('#projectform').submit(function(event) {
-            event.preventDefault();
-
-            //var descrip = $( "input[type=radio][name=options]:checked" ).val();
-            var descrip = $('#descrip').val();
-            var method = $( "input[type=radio][name=method]:checked" ).val();
-            var ridername = $('#ridername').val();
-
-            var foundError = 0;
-
-	    alert(descrip)
-	      var link = orderForm;
+            	event.preventDefault();
+            	var descrip = $('#descrip').val();
+	    	var link = orderForm;
 		for (var value in source) {
 			if (source[value][1] == undefined) {
 				continue;
@@ -269,17 +261,7 @@
 				link += "&"+ source[value][0] + "=" + source[value][1];
 			}
 		}
-            //console.log(descrip);
-            if (descrip) {
-              if (foundError == 0) {
-	        alert("REDIRECT");
-		alert(link);
 		location.href = link;
-                //$('#formdiv').html('<iframe src="https://docs.google.com/forms/d/e/' + formId + '/formResponse?entry.' + formLat + '=' + lat + '&entry.' + formLng + '=' + lng + '&entry.'+ formText + '=' + descrip + '&entry.'+ formOrderNo + '=' + orderno + '&entry.'+ formMethod + '=' + method + '&entry.'+ formRiderName + '=' + ridername + '&submit=Submit" seamless scrolling="no" style="overflow:hidden;height:375px;border:lightgray solid thin;"></iframe>');
-              }
-            } else {
-              $('#formHelp').html('<span style="color:red;">กรุณาใส่ข้อมูลให้ครบถ้วน</span>')
-            }
           });
       });
 
