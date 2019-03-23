@@ -277,7 +277,7 @@
 
       marker.on('popupopen', function() {
         $('#projectform').submit(function(event) {
-            	//event.preventDefault();
+            	event.preventDefault();
             	var descrip = $('#descrip').val();
 		var record = $( "input[type=checkbox][name=record]:checked" ).val();
 		
@@ -342,7 +342,7 @@
 
           });
       });
-
+/*
       if (marker) {
         marker.on('popupclose', function(e) {
           map.removeLayer(marker);
@@ -351,6 +351,7 @@
           }
         });
       }
+      */
     }
 /*
     map.on('locationfound', function(e) {
