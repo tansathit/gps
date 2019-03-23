@@ -101,9 +101,16 @@
 
     var inLayer = 0;
     var currentLocation = 0;
-    var source = {};
-    source['selected_store'] = globalHash['entry.690413346'];
-    source['address'] = globalHash['entry.1152803505'];
+    var source = {
+    	'selected_store' : globalHash['entry.690413346'],
+	'line'		 : globalHash['entry.1561723974'],
+	'tel'		 : globalHash['entry.549659197'],
+	'email'		 : globalHash['entry.999662534'],
+	'time'		 : globalHash['entry.959736102'],
+	'payment'	 : globalHash['entry.543841120'],
+	'address'	 : globalHash['entry.1152803505'],
+	'allmember'	 : globalHash['entry.1250407467'],
+    };
 	  
     function popUpFeature(feature, layer){
       if (feature.properties.fill == "") {
