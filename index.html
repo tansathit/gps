@@ -284,26 +284,33 @@
 		if (descrip) {
 			if (record == "yes") {
 				//record to register file
-				var submitRegisterLink = 'https://docs.google.com/forms/d/e/' + registerId + '/formResponse?submit=Submit';
+				var submitRegisterLink = 'https://docs.google.com/forms/d/e/' + registerId + '/formResponse?';
 
+				var firstParam = 1;
 				for (var value in registerForm) {
+					var amp = "&";
+					if (firstParam == 1) {
+						amp = "";
+						firstParam = 0;
+					}
 					if (registerForm[value][1] == undefined) {
 						continue;
 					}
 					if (value == 'latitude') {
-						submitRegisterLink += "&" + registerForm[value][0] + "=" + lat;
+						submitRegisterLink += amp + registerForm[value][0] + "=" + lat;
 					}
 					else if (value == 'longitude'){
-						submitRegisterLink += "&" + registerForm[value][0] + "=" + lng;
+						submitRegisterLink += amp + registerForm[value][0] + "=" + lng;
 					}
 					else if (value == 'address') {
-						submitRegisterLink += "&" + registerForm[value][0] + "=" + descrip;
+						submitRegisterLink += amp + registerForm[value][0] + "=" + descrip;
 					}
 					else {
-						submitRegisterLink += "&" + registerForm[value][0] + "=" + registerForm[value][1];
+						submitRegisterLink += amp + registerForm[value][0] + "=" + registerForm[value][1];
 					}
 				}
-				submitRegisterLink += '"';
+				submitRegisterLink += '&submit=Submit"';
+				alert(submitRegisterLink);
 				$('#formdiv').html('<iframe src="' + submitRegisterLink + ' seamless scrolling="no" style="overflow:hidden;height:375px;border:lightgray solid thin;"></iframe>');
 			}
 			location.href = link;
