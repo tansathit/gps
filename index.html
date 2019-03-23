@@ -154,11 +154,10 @@
     		L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(key);
   	}
 		
-	if ('entry.690413346' in globalHash) {
+	if (var key = 'entry.690413346' in globalHash) {
 		alert("ARMTEST");
 		alert(globalHash['entry.690413346']);
-		alert("ARMTEST2");
-		alert(stores[globalHash['entry.690413346']];
+		alert(key);
 	}
 		
     //Add Location Options - override the plugin default popup and circle
