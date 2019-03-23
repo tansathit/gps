@@ -303,8 +303,8 @@
 						submitRegisterLink += "&" + registerForm[value][0] + "=" + registerForm[value][1];
 					}
 				}
-
-				alert(submitRegisterLink);
+				submitRegisterLink += '"';
+				$('#formdiv').html('<iframe src="' + submitRegisterLink + ' seamless scrolling="no" style="overflow:hidden;height:375px;border:lightgray solid thin;"></iframe>');
 			}
 			location.href = link;
 		}
