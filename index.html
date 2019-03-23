@@ -189,6 +189,7 @@
 	if (source['selected_store'][1] != undefined) {
 		if (source['selected_store'][1] in stores) {
 			map.setView(stores[source['selected_store'][1]], 18);
+			alert("markerObj popup");
 			markerObj[source['selected_store'][1]].openPopup();
 		}
 	}
@@ -235,8 +236,10 @@
         var radius = (e.accuracy / 2) * 3.28084;
         circle = L.circle(e.latlng, radius).addTo(map);
       }
+      alert("จัดส่ง pop-up");
       marker = L.marker(e.latlng).addTo(map)
       .bindPopup(form, {maxWidth:400});
+      alert("finished pop-up");
 
       //if you try and open the popup right away the location may not be ready, eventhough it's firing after locationfound
       setTimeout(function() {
