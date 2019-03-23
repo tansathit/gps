@@ -158,7 +158,10 @@
 		alert("ARMTEST");
 		alert(globalHash['entry.690413346']);
 		var key = globalHash['entry.690413346'];
-		alert(stores[key]);
+
+		if (key in stores) {
+			alert(stores[key]);
+		}
 	}
 		
     //Add Location Options - override the plugin default popup and circle
