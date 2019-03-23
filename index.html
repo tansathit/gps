@@ -101,6 +101,8 @@
 
     var inLayer = 0;
     var currentLocation = 0;
+    // Delivery Form
+    var orderForm = "https://docs.google.com/forms/d/e/1FAIpQLSc28osp_tKOb4nwf6JM4aBiGdtr3PI28ckZqTOX7Kij9G57UQ/viewform?usp=pp_url";
     var source = {
     	'selected_store' : ['entry.690413346',globalHash['entry.690413346']],
 	'line'		 : ['entry.1561723974',globalHash['entry.1561723974']],
@@ -110,6 +112,7 @@
 	'payment'	 : ['entry.543841120',globalHash['entry.543841120']],
 	'address'	 : ['entry.1152803505',globalHash['entry.1152803505']],
 	'allmember'	 : ['entry.1250407467',globalHash['entry.1250407467']],
+	'method'	 : ['entry.1940904798',"รับที่ร้าน 7-11"],
     };
 	  
     function popUpFeature(feature, layer){
@@ -163,7 +166,7 @@
 	};
 	var markerObj = {};  
 	for (var key in stores) {
-		var link = "https://docs.google.com/forms/d/e/1FAIpQLSc28osp_tKOb4nwf6JM4aBiGdtr3PI28ckZqTOX7Kij9G57UQ/viewform?usp=pp_url";
+		var link = orderForm;
 		for (var value in source) {
 			if (value == 'selected_store') {
 				link += "&"+ source[value][0] + "=" + key
