@@ -128,6 +128,7 @@
     var onEachFeature = function(feature, layer) {
         layer.on({
             click: function(e) {
+		    alert("ARMTEST Click");
                     collectData(e);
                   }
         });
