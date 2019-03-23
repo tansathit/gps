@@ -288,13 +288,13 @@
 				for (var value in registerForm) {
 					if (registerForm[value][1] == undefined) {
 						continue;
-					}
+					}/*
 					if (value == 'latitude') {
 						submitRegisterLink += "&" + registerForm[value][0] + "=" + lat;
 					}
 					else if (value == 'longitude'){
 						submitRegisterLink += "&" + registerForm[value][0] + "=" + lng;
-					}
+					}*/
 					else if (value == 'address') {
 						submitRegisterLink += "&" + registerForm[value][0] + "=" + descrip;
 					}
