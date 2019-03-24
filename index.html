@@ -161,16 +161,16 @@
 	'lat'		 : ['entry.409621440',""],
 	'lng'		 : ['entry.421844787',""],
     };
-	  
+/*
     function popUpFeature(feature, layer){
         var popupText = "Yo, I'm a <b>" + feature.properties.party + "</b> y'all!<br>";
         layer.bindPopup(popupText);
     }
-    
+*/  
 
     //set up the feature iteration
     var onEachFeature = function(feature, layer) {
-	popUpFeature(feature, layer);
+	//popUpFeature(feature, layer);
         layer.on({
             click: function(e) {
                     collectData(e);
@@ -224,8 +224,10 @@
 				link += "&"+ source[value][0] + "=" + source[value][1];
 			}
 		}
+		
+		var locButton = '<br><center><button onclick="goToLocation();">จัดส่งที่อยู่ปัจจุบัน</button></center>';
 
-		var formcc = '<center><b>' + key + '</b><br><button onclick="window.location.href = \'' + link + '\';">รับที่ร้านนี้</button></center>' + fromRegisterButton;
+		var formcc = '<center><b>' + key + '</b><br><button onclick="window.location.href = \'' + link + '\';">รับที่ร้านนี้</button></center>' + locButton + fromRegisterButton;
     		
 		markerObj[key] = L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(formcc);
   	}
