@@ -53,7 +53,23 @@
     .form-control{resize:none;}
     .text-muted{font-size:smaller;}
     hr {margin: 10px 0;}
-    .hideDiv{display:none;}  
+    .hideDiv{display:none;}
+	.button {
+	  background-color: #4CAF50; /* Green */
+	  border: none;
+	  color: white;
+	  padding: 15px 32px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 16px;
+	  margin: 4px 2px;
+	  cursor: pointer;
+	}
+	.button2 {background-color: #008CBA;} /* Blue */
+	.button3 {background-color: #f44336;} /* Red */ 
+	.button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
+	.button5 {background-color: #555555;} /* Black */
   </style>
 </head>
 
@@ -127,7 +143,7 @@
     };
     var fromRegisterButton = "";
     if (registerForm['latitude'][1]) {
-	fromRegisterButton = '<br><center><button onclick="flyToLatLng();">จัดส่งที่ที่เคยบันทึกไว้</button></center>';
+	fromRegisterButton = '<br><center><button class="button button2" onclick="flyToLatLng();">จัดส่งที่ที่เคยบันทึกไว้</button></center>';
     }
     function flyToLatLng() {
     	map.flyTo([globalHash['lat'],globalHash['lng']], 18);
@@ -248,9 +264,9 @@
 			}
 		}
 		
-		var locButton = '<br><center><button onclick="goToLocation();">จัดส่งที่อยู่ปัจจุบัน</button></center>';
+		var locButton = '<br><center><button class="button button2" onclick="goToLocation();">จัดส่งที่อยู่ปัจจุบัน</button></center>';
 
-		var formcc = '<center><b>' + key + '</b><br><button onclick="window.location.href = \'' + link + '\';">รับที่ร้านนี้</button></center>' + locButton + fromRegisterButton;
+		var formcc = '<center><b>' + key + '</b><br><button class="button" onclick="window.location.href = \'' + link + '\';">รับที่ร้านนี้</button></center>' + locButton + fromRegisterButton;
     		
 		markerObj[key] = L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(formcc);
   	}
