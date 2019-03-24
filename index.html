@@ -176,6 +176,7 @@
                     collectData(e);
                   }
         });
+	/* //layer popup
 	map.on('locationfound', function(e) {
 	  var latlngPoint = new L.LatLng(e.latlng.lat, e.latlng.lng);
 	  layer.fireEvent('click', {
@@ -184,6 +185,7 @@
 	      containerPoint: map.latLngToContainerPoint(latlngPoint)
 	  });
 	});
+	*/
     }
     
     $.getJSON("geojson_ww_thai_sri.json",function(data){
