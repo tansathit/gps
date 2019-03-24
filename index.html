@@ -60,6 +60,7 @@
   <div id="footer" data-tracking-area="footer" style="display:none;">
   
   <script type="text/javascript">
+	  alert("1");
   var hashParams = window.location.hash.substr(1).split('&'); // substr(1) to remove the `#`
   //alert(window.location.hash.substr(1));
   var globalHash = {}
@@ -67,6 +68,7 @@
     var p = hashParams[i].split('=');
     globalHash[p[0]] = decodeURIComponent(p[1]);
   }
+	  alert("2");
   //window.onload = function(){
     //document.getElementById("descrip").value = globalHash.orderno;
   //}
@@ -94,6 +96,7 @@
     var formMethod = '1994150821';
     var formRiderName = '1640105652';
     var gsheet = '1pkXqeRyOfe5ldUaxcN8K2TYioATgtIFG9OA6-aL7RzE';
+	  alert("3");
     /* Original register file
     var registerForm = {
     	'tel'		: ['entry.1469577993',globalHash['entry.549659197']],
@@ -122,6 +125,7 @@
     if (registerForm['latitude'][1]) {
 	fromRegisterButton = '<br><center><button onclick="flyToLatLng();">จัดส่งที่ที่เคยบันทึกไว้</button></center>';
     }
+	  alert("4");
     function flyToLatLng() {
     	map.flyTo([globalHash['lat'],globalHash['lng']], 18);
 
