@@ -178,7 +178,7 @@
         });
 	map.on('locationfound', function(e) {
 	  map.removeLayer(marker)
-	  var latlngPoint = new L.LatLng(e.latlng.lat, e.latlng.lng);
+	  var latlngPoint = new L.LatLng(e.latlng.lat+0.002, e.latlng.lng);
 	  map.fireEvent('click', {
 	    latlng: latlngPoint
 	  });
