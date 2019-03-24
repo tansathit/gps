@@ -263,13 +263,6 @@
 	// remaining is the same as in the docs, accept for the var instead of const declarations
 	var provider = new OpenStreetMapProvider();
 
-	var searchControl = new GeoSearchControl({
-	  provider: provider,
-	});
-
-	var map = new L.Map('map');
-	map.addControl(searchControl);
-	  
     if (source['selected_store'][1] != undefined) {
 	if (source['selected_store'][1] in stores) {
 		map.setView(stores[source['selected_store'][1]], 18);
