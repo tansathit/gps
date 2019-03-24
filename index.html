@@ -178,10 +178,11 @@
         });
 	map.on('locationfound', function(e) {
 	  var latlngPoint = new L.LatLng(e.latlng.lat+0.001, e.latlng.lng);
-	      setTimeout(function() {
+	      setTimeout(function() {/*
 		  map.fireEvent('click', {
 		    latlng: latlngPoint
-		  });
+		  });*/
+		  layer.fireEvent('click');
 		loc.stop();
 	      }, 2000);
 
