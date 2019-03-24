@@ -179,8 +179,9 @@
                     collectData(e);
                   }
         });
-	//var results = leafletPip.pointInLayer([e.latlng.lng, e.latlng.lat], datalayer);
-	    //alert(results);
+	    alert("check pip");
+	var results = leafletPip.pointInLayer([e.latlng.lng, e.latlng.lat], datalayer, true);
+	    alert(results);
 	/* //layer popup
 	map.on('locationfound', function(e) {
 	  var latlngPoint = new L.LatLng(e.latlng.lat, e.latlng.lng);
