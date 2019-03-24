@@ -439,6 +439,8 @@
       getData(e);
     });
 
+    //This prevents us from dropping a pin behind the search container when we click on it
+    searchControl.getContainer().onclick = e => { e.stopPropagation(); };
 
 /*    map.on('stopfollowing', function() {
       if (marker) { 
