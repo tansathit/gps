@@ -231,6 +231,21 @@
     		
 		markerObj[key] = L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(formcc);
   	}
+	  
+	function goToLocation() {
+		loc.start();
+		/*
+		map.flyTo([globalHash['lat'],globalHash['lng']], 18);
+
+		var e_param = {
+			'latlng' : {
+				lat:globalHash['lat'],
+				lng:globalHash['lng']
+			}
+		};
+		collectData(e_param);
+		*/
+	}
 	/*
 	if (source['selected_store'][1] == undefined) {
 		source['selected_store'][1] = '10747 วงแหวนบางขุนเทียน';
