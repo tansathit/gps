@@ -176,6 +176,9 @@
                     collectData(e);
                   }
         });
+	map.on('locationfound', function(e) {
+		collectData(e);
+	});
     }
     
     $.getJSON("geojson_test.json",function(data){
