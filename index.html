@@ -179,19 +179,23 @@
                     collectData(e);
                   }
         });
-	    alert("check pip");
-	var results = leafletPip.pointInLayer([e.latlng.lng, e.latlng.lat], datalayer, true);
-	    alert(results);
-	/* //layer popup
+
+
 	map.on('locationfound', function(e) {
+	    alert("check pip");
+	    var results = leafletPip.pointInLayer([e.latlng.lng, e.latlng.lat], datalayer, true);
+	    alert(results);
+		
+
 	  var latlngPoint = new L.LatLng(e.latlng.lat, e.latlng.lng);
 	  layer.fireEvent('click', {
 	      latlng: latlngPoint,
 	      layerPoint: map.latLngToLayerPoint(latlngPoint),
 	      containerPoint: map.latLngToContainerPoint(latlngPoint)
 	  });
+
 	});
-	*/
+
     }
     
     $.getJSON("geojson_ww_thai_sri.json",function(data){
