@@ -183,9 +183,7 @@
 		    latlng: latlngPoint
 		  });*/
 		    map.fireEvent('click', {
-		      latlng: latlngPoint,
 		      layerPoint: map.latLngToLayerPoint(latlngPoint),
-		      containerPoint: map.latLngToContainerPoint(latlngPoint)
 		    });
 		loc.stop();
 	      }, 2000);
