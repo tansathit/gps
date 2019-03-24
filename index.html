@@ -148,6 +148,7 @@
 
     var inLayer = 0;
     var currentLocation = 0;
+    var datalayer;
     // Delivery Form
     var orderForm = "https://docs.google.com/forms/d/e/1FAIpQLSc28osp_tKOb4nwf6JM4aBiGdtr3PI28ckZqTOX7Kij9G57UQ/viewform?usp=pp_url";
     var source = {
@@ -200,7 +201,7 @@
     
     $.getJSON("geojson_ww_thai_sri.json",function(data){
       // add GeoJSON layer to the map once the file is loaded
-      var datalayer = L.geoJson(data ,{
+      datalayer = L.geoJson(data ,{
         style: function(feature) {
             return {
                 fillColor: feature.properties['fill'],
