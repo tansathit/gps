@@ -183,23 +183,10 @@
 	      layerPoint: map.latLngToLayerPoint(latlngPoint),
 	      containerPoint: map.latLngToContainerPoint(latlngPoint)
 	  });
-	/*
-	      setTimeout(function() {
-		  map.fireEvent('click', {
-		    latlng: latlngPoint
-		  });
-		    map.fireEvent('click', {
-		      layerPoint: map.latLngToLayerPoint(latlngPoint),
-		    });
-		loc.stop();
-	      }, 2000);
-	*/
-
-		
 	});
     }
     
-    $.getJSON("geojson_test.json",function(data){
+    $.getJSON("geojson_ww_thai_sri.json",function(data){
       // add GeoJSON layer to the map once the file is loaded
       var datalayer = L.geoJson(data ,{
         style: function(feature) {
