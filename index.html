@@ -227,6 +227,10 @@
 		markerObj[key] = L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(formcc);
   	}
 	
+	if (source['selected_store'][1] == undefined) {
+		source['selected_store'][1] = '10747 วงแหวนบางขุนเทียน';
+	}
+	
 	if (source['selected_store'][1] != undefined) {
 		if (source['selected_store'][1] in stores) {
 			alert("1");
