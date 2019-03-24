@@ -184,7 +184,7 @@
 
 	map.on('locationfound', function(e) {
 	    var results = leafletPip.pointInLayer([e.latlng.lng, e.latlng.lat], datalayer, true);
-	    if(results) {
+	    if (results) {
 	  	collectData(e);
 		  /*
 		  var latlngPoint = new L.LatLng(e.latlng.lat, e.latlng.lng);
@@ -192,15 +192,13 @@
 		      latlng: latlngPoint,
 		      layerPoint: map.latLngToLayerPoint(latlngPoint),
 		      containerPoint: map.latLngToContainerPoint(latlngPoint)
+		  });
 		      */
 		  }
 	    else {
 		getData(e);  
 	    }
-	  });
-
 	});
-
     }
     
     $.getJSON("geojson_test.json",function(data){
