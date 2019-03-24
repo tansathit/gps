@@ -47,7 +47,7 @@
   <style>
     *{font-family: 'Source Sans Pro', sans-serif;}
     .map {height:70%}
-    #map {position:relative;height:610px;}
+    #map {position:relative;height:600px;}
     .leaflet-popup-content {font-size: medium;}
     .form-group{width:254px;margin-bottom:0;}
     .form-control{resize:none;}
@@ -143,7 +143,7 @@
     };
     var fromRegisterButton = "";
     if (registerForm['latitude'][1]) {
-	fromRegisterButton = '<br><center><button class="button button2" onclick="flyToLatLng();">จัดส่งที่ที่เคยบันทึกไว้</button></center>';
+	fromRegisterButton = '<center><button class="button button2" onclick="flyToLatLng();">จัดส่งที่อยู่ที่เคยบันทึกไว้</button></center>';
     }
     function flyToLatLng() {
     	map.flyTo([globalHash['lat'],globalHash['lng']], 18);
@@ -264,7 +264,7 @@
 			}
 		}
 		
-		var locButton = '<br><center><button class="button button2" onclick="goToLocation();">จัดส่งที่อยู่ปัจจุบัน</button></center>';
+		var locButton = '<center><button class="button button2" onclick="goToLocation();">จัดส่งที่อยู่ปัจจุบัน</button></center>';
 
 		var formcc = '<center><b>' + key + '</b><br><button class="button" onclick="window.location.href = \'' + link + '\';">รับที่ร้านนี้</button></center>' + locButton + fromRegisterButton;
     		
