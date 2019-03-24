@@ -178,15 +178,23 @@
         });
 	map.on('locationfound', function(e) {
 	  var latlngPoint = new L.LatLng(e.latlng.lat+0.001, e.latlng.lng);
-	      setTimeout(function() {/*
+		alert("fire click at " + latlngPoint);
+	  map.fireEvent('click', {
+	      latlng: latlngPoint,
+	      layerPoint: map.latLngToLayerPoint(latlngPoint),
+	      containerPoint: map.latLngToContainerPoint(latlngPoint)
+	  });
+	/*
+	      setTimeout(function() {
 		  map.fireEvent('click', {
 		    latlng: latlngPoint
-		  });*/
+		  });
 		    map.fireEvent('click', {
 		      layerPoint: map.latLngToLayerPoint(latlngPoint),
 		    });
 		loc.stop();
 	      }, 2000);
+	*/
 
 		
 	});
