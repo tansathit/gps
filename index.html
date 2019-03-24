@@ -350,6 +350,7 @@
 		}
 		if (descrip) {
 			if (record == "yes") {
+				alert("ARMTEST " + linkd);
 				//record to register file
 				
 				var submitRegisterLink = 'https://docs.google.com/forms/d/e/' + latlngForm + '/formResponse?';
@@ -379,16 +380,15 @@
 						submitRegisterLink += amp + registerForm[value][0] + "=" + registerForm[value][1];
 					}
 				}
+				alert("ARMTEST2 " + linkd);
 				submitRegisterLink += '&submit=Submit';
 				$('#formdiv').html('<iframe src="' + submitRegisterLink + '" seamless scrolling="no" style="overflow:hidden;height:300px;border:lightgray solid thin;"></iframe>');
-				
+				alert("ARMTEST3 " + linkd);
 				//Need to wait for safari
-				alert(linkd);
 				setTimeout("location.href = linkd;",2000);
 			}
 			else {
 				//No need to wait
-				alert(linkd)
 				location.href = linkd;
 			}
 			
