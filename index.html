@@ -29,6 +29,10 @@
   <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.66.2/dist/L.Control.Locate.min.js" charset="utf-8"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.66.2/dist/L.Control.Locate.min.css" />
 
+  <!-- geoSearch-->
+  <link  href="https://unpkg.com/leaflet-geosearch@latest/assets/css/leaflet.css" rel="stylesheet" />
+  <script src="https://unpkg.com/leaflet-geosearch@latest/dist/bundle.min.js"></script>
+	
   <!--Tabletop and GeoJson-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.4.3/tabletop.min.js"></script>
   <script src="js/geojson.js"></script>
@@ -252,6 +256,20 @@
     //Endable Location at page load and do things once the location is found
     //loc.start();
 
+	// instead of import {} from 'leaflet-geosearch', use the `window` global
+	var GeoSearchControl = window.GeoSearch.GeoSearchControl;
+	var OpenStreetMapProvider = window.GeoSearch.OpenStreetMapProvider;
+
+	// remaining is the same as in the docs, accept for the var instead of const declarations
+	var provider = new OpenStreetMapProvider();
+
+	var searchControl = new GeoSearchControl({
+	  provider: provider,
+	});
+
+	var map = new L.Map('map');
+	map.addControl(searchControl);
+	  
     if (source['selected_store'][1] != undefined) {
 	if (source['selected_store'][1] in stores) {
 		map.setView(stores[source['selected_store'][1]], 18);
