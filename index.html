@@ -226,19 +226,12 @@
     		
 		markerObj[key] = L.marker(stores[key], {icon: sevenIcon}).addTo(map).bindPopup(formcc);
   	}
-	
+	/*
 	if (source['selected_store'][1] == undefined) {
 		source['selected_store'][1] = '10747 วงแหวนบางขุนเทียน';
 	}
-	
-	if (source['selected_store'][1] != undefined) {
-		if (source['selected_store'][1] in stores) {
-			alert("1");
-			map.setView(stores[source['selected_store'][1]], 18);
-			markerObj[source['selected_store'][1]].openPopup();
-		}
-	}
-	
+	*/
+
 	// เช็คจาก Latlng ก่อน ถ้าไม่มีค่อยเอาจาก register
 	var address_inbox = registerForm['address'][1];
 	if (address_inbox == undefined) {
@@ -258,6 +251,17 @@
     var loc = L.control.locate(locOptions).addTo(map);
     //Endable Location at page load and do things once the location is found
     //loc.start();
+	  
+    if (source['selected_store'][1] != undefined) {
+	if (source['selected_store'][1] in stores) {
+		map.setView(stores[source['selected_store'][1]], 18);
+		markerObj[source['selected_store'][1]].openPopup();
+	}
+    }
+    else {
+	loc.start();
+    }
+	  
     var marker, circle, lat, lng; //create variables used throughout the map
 
     var popup = L.popup();
@@ -375,7 +379,7 @@
 
           });
       });
-	    	  alert("5");
+
       if (marker) {
         marker.on('popupclose', function(e) {
 	  map.removeLayer(marker);
