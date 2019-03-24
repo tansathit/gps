@@ -252,10 +252,39 @@
     //Endable Location at page load and do things once the location is found
     //loc.start();
 
-    var searchLayer = L.layerGroup().addTo(map);
-    //... adding data in searchLayer ...
-    map.addControl( new L.Control.Search({layer: searchLayer}) );
-    //searchLayer is a L.LayerGroup contains searched markers
+	var GooglePlacesSearchBox = L.Control.extend({
+	  onAdd: function() {
+	    var element = document.createElement("input");
+	    element.id = "searchBox";
+	    return element;
+	  }
+	});
+	(new GooglePlacesSearchBox).addTo(map);
+
+	var input = document.getElementById("searchBox");
+	var searchBox = new google.maps.places.SearchBox(input);
+
+	searchBox.addListener('places_changed', function() {
+	  var places = searchBox.getPlaces();
+
+	  if (places.length == 0) {
+	    return;
+	  }
+
+	  var group = L.featureGroup();
+
+	  places.forEach(function(place) {
+
+	    // Create a marker for each place.
+	    var marker = L.marker([
+	      place.geometry.location.lat(),
+	      place.geometry.location.lng()
+	    ]);
+	    group.addLayer(marker);
+	  });
+
+	  group.addTo(map);
+	  map.fitBounds(group.getBounds());
 	  
     if (source['selected_store'][1] != undefined) {
 	if (source['selected_store'][1] in stores) {
