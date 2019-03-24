@@ -178,10 +178,11 @@
         });
 	map.on('locationfound', function(e) {
 	  var latlngPoint = new L.LatLng(e.latlng.lat, e.latlng.lng);
+		alert("Auto Clicked! at " + latlngPoint);
 	  map.fireEvent('click', {
 	    latlng: latlngPoint
 	  });
-		alert("Auto Clicked!");
+		
 	});
     }
     
