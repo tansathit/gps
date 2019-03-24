@@ -251,6 +251,11 @@
     var loc = L.control.locate(locOptions).addTo(map);
     //Endable Location at page load and do things once the location is found
     //loc.start();
+
+    var searchLayer = L.layerGroup().addTo(map);
+    //... adding data in searchLayer ...
+    map.addControl( new L.Control.Search({layer: searchLayer}) );
+    //searchLayer is a L.LayerGroup contains searched markers
 	  
     if (source['selected_store'][1] != undefined) {
 	if (source['selected_store'][1] in stores) {
@@ -259,6 +264,7 @@
 	}
     }
     else {
+	// if no selected store then get location from current instead
 	loc.start();
     }
 	  
