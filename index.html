@@ -163,10 +163,8 @@
     };
 	  
     function popUpFeature(feature, layer){
-      if (feature.properties.fill == "") {
         var popupText = "Yo, I'm a <b>" + feature.properties.party + "</b> y'all!<br>";
         layer.bindPopup(popupText);
-      }
     }
     
 
