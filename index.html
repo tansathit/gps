@@ -178,7 +178,6 @@
         });
 	map.on('locationfound', function(e) {
 	  var latlngPoint = new L.LatLng(e.latlng.lat, e.latlng.lng);
-		alert("Auto Clicked! at " + latlngPoint);
 	  map.fireEvent('click', {
 	    latlng: latlngPoint
 	  });
@@ -438,11 +437,11 @@
       collectData(e);
     });
 */
-
+/*
     map.on('locationfound', function(e) {
       getData(e);
     });
-	  
+*/	  
   setTimeout(function() {
     if(currentLocation == 0){
       return false;
