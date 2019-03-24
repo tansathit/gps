@@ -198,6 +198,7 @@
 	    else {
 		getData(e);  
 	    }
+	    loc.stop();
 	});
     }
     
@@ -256,6 +257,7 @@
   	}
 	  
 	function goToLocation() {
+		loc.stop();
 		loc.start();
 		/*
 		map.flyTo([globalHash['lat'],globalHash['lng']], 18);
@@ -395,8 +397,7 @@
 			if (record == "yes") {
 				//record to register file
 				var submitRegisterLink = 'https://docs.google.com/forms/d/e/' + latlngForm + '/formResponse?';
-				//var submitRegisterLink = 'https://docs.google.com/forms/d/e/' + registerId + '/viewform?usp=pp_url';
-
+				
 				var firstParam = 1;
 				for (var value in registerForm) {
 					var amp = "&";
