@@ -182,7 +182,11 @@
 		  map.fireEvent('click', {
 		    latlng: latlngPoint
 		  });*/
-		  layer.fireEvent('click');
+		    map.fireEvent('click', {
+		      latlng: latlngPoint,
+		      layerPoint: map.latLngToLayerPoint(latlngPoint),
+		      containerPoint: map.latLngToContainerPoint(latlngPoint)
+		    });
 		loc.stop();
 	      }, 2000);
 
