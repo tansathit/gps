@@ -303,7 +303,7 @@
       lng = e.latlng.lng;
       inLayer = 1;
 
-      var form = '<div id="formdiv"><form role="form" id="projectform"><div class="form-group"><div class="form-group"><label for="description" class="requiredField">รายละเอียดที่อยู่ในการจัดส่ง<br>' + /* e.latlng.toString() + */ '</label><textarea class="form-control" rows="3" id="descrip" placeholder="กรุณาระบุรายละเอียดเช่น บ้านเลขที่, อาคาร, ชั้น, แผนก, อื่นๆ เพื่อให้ง่ายต่อการจัดส่ง">' + address_inbox + '</textarea></div><input type="checkbox" name="record" value="yes"> บันทีกที่อยู่นี้ไว้ใช้ครั้งถัดไป<br><em class="text-muted">กดปุ่มด้านล่างเพื่อจัดส่ง</em><div id="formHelp"></div><hr /><center><button type="submit" id="submit" class="btn btn-default btn-sm">จัดส่งตามที่อยู่นี้</button></center></form></div>';
+      var form = '<div id="formdiv"><form role="form" id="projectform"><div class="form-group"><div class="form-group"><label for="description" class="requiredField">รายละเอียดที่อยู่ในการจัดส่ง' + /* '<br>' + e.latlng.toString() + */ '</label><textarea class="form-control" rows="3" id="descrip" placeholder="กรุณาระบุรายละเอียดเช่น บ้านเลขที่, อาคาร, ชั้น, แผนก, อื่นๆ เพื่อให้ง่ายต่อการจัดส่ง">' + address_inbox + '</textarea></div><input type="checkbox" name="record" value="yes"> บันทีกที่อยู่นี้ไว้ใช้ครั้งถัดไป<br><em class="text-muted">กดปุ่มด้านล่างเพื่อจัดส่ง</em><div id="formHelp"></div><hr /><center><button type="submit" id="submit" class="btn btn-default btn-sm">จัดส่งตามที่อยู่นี้</button></center></form></div>';
 
       if (e.accuracy) {
         var radius = (e.accuracy / 2) * 3.28084;
