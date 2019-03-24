@@ -164,7 +164,7 @@
 	  
     function popUpFeature(feature, layer){
       if (feature.properties.fill == "") {
-        var popupText = "พื้นที่ไม่รองรับการจัดส่ง";
+        var popupText = "Yo, I'm a <b>" + feature.properties.party + "</b> y'all!<br>";
         layer.bindPopup(popupText);
       }
     }
@@ -172,6 +172,7 @@
 
     //set up the feature iteration
     var onEachFeature = function(feature, layer) {
+	popUpFeature(feature, layer);
         layer.on({
             click: function(e) {
                     collectData(e);
