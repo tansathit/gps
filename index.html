@@ -177,7 +177,10 @@
                   }
         });
 	map.on('locationfound', function(e) {
-		collectData(e);
+	  var latlngPoint = new L.LatLng(e.latlng.lng, e.latlng.lat);
+	  map.fireEvent('click', {
+	    latlng: latlngPoint
+	  });
 	});
     }
     
