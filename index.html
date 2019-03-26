@@ -197,7 +197,7 @@
                   }
         });
 
-	map.on('locationfound', function(e) {/*
+	map.on('locationfound', function(e) {
 	    var results = leafletPip.pointInLayer([e.latlng.lng, e.latlng.lat], datalayer, true);
 	    if (results != "") {
 	  	collectData(e);
@@ -205,7 +205,6 @@
 	    else {
 		getData(e);  
 	    }
-	    */
 	});
     }
     
@@ -299,7 +298,7 @@
       showPopup: false,
       follow:true,
       drawMarker: false,
-      flyTo: true,
+      //flyTo: true,
     };
     //Add Location
     var loc = L.control.locate(locOptions).addTo(map);
@@ -329,8 +328,8 @@
 	// if no selected store then get location from current instead
 	//loc.start();
 	//map.setView([13.626958630991819, 100.44395327568054], 18);
-	//loc.stop();
-	//loc.start();
+	loc.stop();
+	loc.start();
     }
 	  
     var marker, circle, lat, lng; //create variables used throughout the map
