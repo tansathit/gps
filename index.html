@@ -327,6 +327,7 @@
     else {
 	// if no selected store then get location from current instead
 	//map.setView([13.626958630991819, 100.44395327568054], 18);
+	    removeControl(loc);
 	    locOptions = {
 	      drawCircle: false,
 	      showPopup: false,
@@ -337,6 +338,7 @@
 	goToLocation()
 	    
 	//flyTo = true will not display map if no "source" to fly to destination.
+	    removeControl(loc);
 	    locOptions = {
 	      drawCircle: false,
 	      showPopup: false,
