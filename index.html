@@ -197,22 +197,15 @@
                   }
         });
 
-	map.on('locationfound', function(e) {
+	map.on('locationfound', function(e) {/*
 	    var results = leafletPip.pointInLayer([e.latlng.lng, e.latlng.lat], datalayer, true);
 	    if (results != "") {
 	  	collectData(e);
-		  /*
-		  var latlngPoint = new L.LatLng(e.latlng.lat, e.latlng.lng);
-		  layer.fireEvent('click', {
-		      latlng: latlngPoint,
-		      layerPoint: map.latLngToLayerPoint(latlngPoint),
-		      containerPoint: map.latLngToContainerPoint(latlngPoint)
-		  });
-		      */
 		  }
 	    else {
 		getData(e);  
 	    }
+	    */
 	});
     }
     
@@ -335,7 +328,7 @@
     else {
 	// if no selected store then get location from current instead
 	//loc.start();
-	map.setView([13.626958630991819, 100.44395327568054], 18);
+	//map.setView([13.626958630991819, 100.44395327568054], 18);
     }
 	  
     var marker, circle, lat, lng; //create variables used throughout the map
