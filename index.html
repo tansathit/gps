@@ -208,7 +208,7 @@
 	});
     }
     
-    $.getJSON("geojson_test.json",function(data){
+    $.getJSON("geojson_ww_thai_sri.json",function(data){
       // add GeoJSON layer to the map once the file is loaded
       datalayer = L.geoJson(data ,{
         style: function(feature) {
@@ -326,7 +326,6 @@
     }
     else {
 	// if no selected store then get location from current instead
-	//loc.start();
 	//map.setView([13.626958630991819, 100.44395327568054], 18);
 	goToLocation()
     }
@@ -342,7 +341,7 @@
       if (inLayer == 0) {
 	      popup
 		.setLatLng(e.latlng)
-		.setContent("<center><b>ขออภัยในความไม่สะดวก<br>พื้นที่นี้ยังไม่รองรับการจัดส่ง</b><br>(" + e.latlng.toString() + ")</center>")
+		.setContent("<center><b>ขออภัยในความไม่สะดวก<br>พื้นที่นี้ยังไม่รองรับการจัดส่ง</b>" /* + "<br>(" + e.latlng.toString() + ")" */ + "</center>")
 		.openOn(map);
       }
       inLayer = 0;
