@@ -198,10 +198,7 @@
         });
 
 	map.on('locationfound', function(e) {
-		alert("location found");
 	    var results = leafletPip.pointInLayer([e.latlng.lng, e.latlng.lat], datalayer, true);
-		
-		alert("results = " + results);
 	    if (results != "") {
 	  	collectData(e);
 		  /*
@@ -329,7 +326,6 @@
 	  
 	map.addControl(searchControl);
 
-	 alert("ARMTEST selected_store = " + source['selected_store'][1]);
     if (source['selected_store'][1] != undefined) {
 	if (source['selected_store'][1] in stores) {
 		map.setView(stores[source['selected_store'][1]], 18);
@@ -338,7 +334,6 @@
     }
     else {
 	// if no selected store then get location from current instead
-	alert("ARMTEST Here");
 	//loc.start();
     }
 	  
