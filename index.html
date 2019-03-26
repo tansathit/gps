@@ -197,10 +197,11 @@
                   }
         });
 
-	alert("onEach");
 	map.on('locationfound', function(e) {
 		alert("location found");
 	    var results = leafletPip.pointInLayer([e.latlng.lng, e.latlng.lat], datalayer, true);
+		
+		alert("results = " + results);
 	    if (results != "") {
 	  	collectData(e);
 		  /*
