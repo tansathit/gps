@@ -297,8 +297,8 @@
       drawCircle: false,
       showPopup: false,
       follow:true,
-      //drawMarker: false,
-      //flyTo: true,
+      //drawMarker: false, //default = true
+      flyTo: true,
     };
     //Add Location
     var loc = L.control.locate(locOptions).addTo(map);
@@ -327,6 +327,13 @@
     else {
 	// if no selected store then get location from current instead
 	//map.setView([13.626958630991819, 100.44395327568054], 18);
+	    locOptions = {
+	      drawCircle: false,
+	      showPopup: false,
+	      follow:true,
+	    };
+	    //Add Location
+	    loc = L.control.locate(locOptions).addTo(map);
 	goToLocation()
 	    
 	//flyTo = true will not display map if no "source" to fly to destination.
@@ -334,7 +341,6 @@
 	      drawCircle: false,
 	      showPopup: false,
 	      follow:true,
-	      drawMarker: false,
 	      flyTo: true,
 	    };
 	    //Add Location
