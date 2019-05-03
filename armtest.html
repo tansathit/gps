@@ -181,8 +181,9 @@
     };
 
     function popUpFeature(feature, layer){
-        var popupText = "Yo, I'm a <b>" + feature.properties.store + "</b> y'all!<br>";
-        layer.bindPopup(popupText);
+        //var popupText = "Yo, I'm a <b>" + feature.properties.store + "</b> y'all!<br>";
+	e.store_area = feature.properties.store
+        //layer.bindPopup(popupText);
     }
  
     //set up the feature iteration
@@ -379,7 +380,12 @@
 				continue;
 			}
 			else {
-				linkd += "&"+ source[value][0] + "=" + source[value][1];
+				if (value == 'selected_store' and e.store_area <> undefined) {
+					linkd += "&"+ source[value][0] + "=" + e.store_area;
+				}
+				else {
+					linkd += "&"+ source[value][0] + "=" + source[value][1];
+				}
 			}
 		}
 		if (descrip) {
