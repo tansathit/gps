@@ -394,16 +394,11 @@
 			else if (value == 'lng') {
 				linkd += "&"+ source[value][0] + "=" + lng;
 			}
+			else if (source[value][1] == undefined) {
+				continue;
+			}
 			else {
-				if (value == 'selected_store' && e.target.feature.properties.store != undefined) {
-					linkd += "&"+ source[value][0] + "=" + e.target.feature.properties.store;
-				}
-				else if (source[value][1] == undefined) {
-					continue;
-				}
-				else {
-					linkd += "&"+ source[value][0] + "=" + source[value][1];
-				}
+				linkd += "&"+ source[value][0] + "=" + source[value][1];
 			}
 		}
 		if (descrip) {
