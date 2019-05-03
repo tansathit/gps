@@ -163,7 +163,6 @@
     var inLayer = 0;
     var currentLocation = 0;
     var datalayer;
-    var store_area;
     // Delivery Form
     var orderForm = "https://docs.google.com/forms/d/e/1FAIpQLSc28osp_tKOb4nwf6JM4aBiGdtr3PI28ckZqTOX7Kij9G57UQ/viewform?usp=pp_url";
     var source = {
@@ -183,14 +182,12 @@
 /*
     function popUpFeature(feature, layer){
         var popupText = "Yo, I'm a <b>" + feature.properties.store + "</b> y'all!<br>";
-	store_area = feature.properties.store;
         layer.bindPopup(popupText);
     }
 */
  
     //set up the feature iteration
     var onEachFeature = function(feature, layer) {
-	store_area = feature.properties.store;
 	//popUpFeature(feature, layer);
         layer.on({
             click: function(e) {
@@ -340,8 +337,7 @@
       inLayer = 0;
     }
     function collectData(e) {
-      console.log(e);
-      console.log(store_area);
+      //console.log(e);
       lat = e.latlng.lat;
       lng = e.latlng.lng;
       inLayer = 1;
@@ -382,8 +378,8 @@
 				linkd += "&"+ source[value][0] + "=" + lng;
 			}
 			else {
-				if (value == 'selected_store' && store_area != '') {
-					linkd += "&"+ source[value][0] + "=" + store_area;
+				if (value == 'selected_store' && e.target.feature.properties.store != undefined) {
+					linkd += "&"+ source[value][0] + "=" + e.target.feature.properties.store;
 				}
 				else if (source[value][1] == undefined) {
 					continue;
