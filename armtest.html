@@ -151,13 +151,21 @@
 		'latlng' : {
 			lat:globalHash['lat'],
 			lng:globalHash['lng']
+		},
+		'target' : {
+			feature : {
+				properties : {
+					store : undefined
+				}
+			}
 		}
 	};
 	//e_param.target.feature.properties.store = undefined
 	var results = leafletPip.pointInLayer([e_param.latlng.lng, e_param.latlng.lat], datalayer, true);
 	if (results != "") {
 		console.log(results);
-		collectData(results[0]);
+		e_param.target.feature.properties.store = results[0].feature.properties.store
+		collectData(e_param);
 	}
 	else {
 		getData(e_param);  
