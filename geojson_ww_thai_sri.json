@@ -8,7 +8,8 @@
         "stroke-width": 2,
         "stroke-opacity": 1,
         "fill": "#fffa35",
-        "fill-opacity": 0.35
+        "fill-opacity": 0.35,
+        "store": "10747 วงแหวนบางขุนเทียน"
       },
       "geometry": {
         "type": "Polygon",
@@ -157,7 +158,8 @@
         "stroke-width": 2,
         "stroke-opacity": 1,
         "fill": "#fffa35",
-        "fill-opacity": 0.35
+        "fill-opacity": 0.35,
+        "store": "04875 อาคารไทยศรีซูริค"
       },
       "geometry": {
         "type": "Polygon",
@@ -246,7 +248,8 @@
         "stroke-width": 2,
         "stroke-opacity": 1,
         "fill": "#fffa35",
-        "fill-opacity": 0.35
+        "fill-opacity": 0.35,
+        "store": "10254 บางกอกซิตี้ - สาทร"
       },
       "geometry": {
         "type": "Polygon",
@@ -291,7 +294,8 @@
         "stroke-width": 2,
         "stroke-opacity": 1,
         "fill": "#fffa35",
-        "fill-opacity": 0.35
+        "fill-opacity": 0.35,
+        "store": "05410 สาทรสแควร์"
       },
       "geometry": {
         "type": "Polygon",
