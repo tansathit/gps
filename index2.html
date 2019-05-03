@@ -152,9 +152,24 @@
 		'latlng' : {
 			lat:globalHash['lat'],
 			lng:globalHash['lng']
+		},
+		'target' : {
+			feature : {
+				properties : {
+					store : undefined
+				}
+			}
 		}
 	};
-        collectData(e_param);
+	var results = leafletPip.pointInLayer([e_param.latlng.lng, e_param.latlng.lat], datalayer, true);
+	if (results != "") {
+		//console.log(results);
+		e_param.target.feature.properties.store = results[0].feature.properties.store
+		collectData(e_param);
+	}
+	else {
+		getData(e_param);  
+	}
     }
     //Add a basemap
     var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -397,11 +412,16 @@
 			else if (value == 'lng') {
 				linkd += "&"+ source[value][0] + "=" + lng;
 			}
-			else if (source[value][1] == undefined) {
-				continue;
-			}
 			else {
-				linkd += "&"+ source[value][0] + "=" + source[value][1];
+				if (value == 'selected_store' && e.target.feature.properties.store != undefined) {
+					linkd += "&"+ source[value][0] + "=" + e.target.feature.properties.store;
+				}
+				else if (source[value][1] == undefined) {
+					continue;
+				}
+				else {
+					linkd += "&"+ source[value][0] + "=" + source[value][1];
+				}
 			}
 		}
 		if (descrip) {
