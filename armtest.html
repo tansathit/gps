@@ -181,11 +181,10 @@
     };
 /*
     function popUpFeature(feature, layer){
-        var popupText = "Yo, I'm a <b>" + feature.properties.store + "</b> y'all!<br>";
+        var popupText = "Yo, I'm a <b>" + feature.properties.party + "</b> y'all!<br>";
         layer.bindPopup(popupText);
     }
 */
- 
     //set up the feature iteration
     var onEachFeature = function(feature, layer) {
 	//popUpFeature(feature, layer);
@@ -214,7 +213,7 @@
                 fillOpacity: feature.properties['fill-opacity'],
                 color: feature.properties['stroke'],
                 width: feature.properties['stroke-width'],
-                opacity: feature.properties['opacity'],
+                opacity: feature.properties['opacity']
             };
         },
         onEachFeature: onEachFeature
