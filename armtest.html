@@ -182,9 +182,9 @@
     };
 
     function popUpFeature(feature, layer){
-        //var popupText = "Yo, I'm a <b>" + feature.properties.store + "</b> y'all!<br>";
-	store_area = feature.properties.store
-        //layer.bindPopup(popupText);
+        var popupText = "Yo, I'm a <b>" + feature.properties.store + "</b> y'all!<br>";
+	store_area = feature.properties.store;
+        layer.bindPopup(popupText);
     }
  
     //set up the feature iteration
