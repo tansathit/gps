@@ -377,12 +377,12 @@
 			else if (value == 'lng') {
 				linkd += "&"+ source[value][0] + "=" + lng;
 			}
-			else if (source[value][1] == undefined) {
-				continue;
-			}
 			else {
 				if (value == 'selected_store' && store_area != '') {
 					linkd += "&"+ source[value][0] + "=" + store_area;
+				}
+				else if (source[value][1] == undefined) {
+					continue;
 				}
 				else {
 					linkd += "&"+ source[value][0] + "=" + source[value][1];
