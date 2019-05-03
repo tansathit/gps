@@ -163,7 +163,7 @@
 
 	var results = leafletPip.pointInLayer([e_param.latlng.lng, e_param.latlng.lat], datalayer, true);
 	if (results != "") {
-		console.log(results);
+		//console.log(results);
 		e_param.target.feature.properties.store = results[0].feature.properties.store
 		collectData(e_param);
 	}
@@ -351,7 +351,7 @@
       inLayer = 0;
     }
     function collectData(e) {
-      console.log(e);
+      //console.log(e);
       lat = e.latlng.lat;
       lng = e.latlng.lng;
       inLayer = 1;
