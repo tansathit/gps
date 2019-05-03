@@ -157,7 +157,7 @@
 	var results = leafletPip.pointInLayer([e_param.latlng.lng, e_param.latlng.lat], datalayer, true);
 	if (results != "") {
 		console.log(results);
-		collectData(e_param);
+		collectData(results[0]);
 	}
 	else {
 		getData(e_param);  
