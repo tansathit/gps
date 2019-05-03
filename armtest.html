@@ -163,6 +163,7 @@
     var inLayer = 0;
     var currentLocation = 0;
     var datalayer;
+    var store_area;
     // Delivery Form
     var orderForm = "https://docs.google.com/forms/d/e/1FAIpQLSc28osp_tKOb4nwf6JM4aBiGdtr3PI28ckZqTOX7Kij9G57UQ/viewform?usp=pp_url";
     var source = {
@@ -182,7 +183,7 @@
 
     function popUpFeature(feature, layer){
         //var popupText = "Yo, I'm a <b>" + feature.properties.store + "</b> y'all!<br>";
-	e.store_area = feature.properties.store
+	store_area = feature.properties.store
         //layer.bindPopup(popupText);
     }
  
@@ -380,8 +381,8 @@
 				continue;
 			}
 			else {
-				if (value == 'selected_store' && e.store_area != undefined) {
-					linkd += "&"+ source[value][0] + "=" + e.store_area;
+				if (value == 'selected_store' && store_area != undefined) {
+					linkd += "&"+ source[value][0] + "=" + store_area;
 				}
 				else {
 					linkd += "&"+ source[value][0] + "=" + source[value][1];
