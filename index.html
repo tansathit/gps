@@ -213,12 +213,26 @@
         });
 
 	map.on('locationfound', function(e) {
-	    var results = leafletPip.pointInLayer([e.latlng.lng, e.latlng.lat], datalayer, true);
+		var e_param = {
+			'latlng' : {
+				lat:e.latlng.lat,
+				lng:e.latlng.lng
+			},
+			'target' : {
+				feature : {
+					properties : {
+						store : undefined
+					}
+				}
+			}
+		};
+	    var results = leafletPip.pointInLayer([e_param.latlng.lng, e_param.latlng.lat], datalayer, true);
 	    if (results != "") {
-	  	collectData(e);
+		e_param.target.feature.properties.store = results[0].feature.properties.store
+	  	collectData(e_param);
 		  }
 	    else {
-		getData(e);  
+		getData(e_param);  
 	    }
 	});
     }
@@ -410,8 +424,13 @@
 				linkd += "&"+ source[value][0] + "=" + lng;
 			}
 			else {
-				if (value == 'selected_store' && e.target.feature.properties.store != undefined) {
-					linkd += "&"+ source[value][0] + "=" + e.target.feature.properties.store;
+				try {
+					var store_from_polygon = e.target.feature.properties.store;
+				} catch (error) {
+					var store_from_polygon = undefined;
+				}
+				if (value == 'selected_store' && store_from_polygon != undefined) {
+					linkd += "&"+ source[value][0] + "=" + store_from_polygon;
 				}
 				else if (source[value][1] == undefined) {
 					continue;
