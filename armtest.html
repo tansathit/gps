@@ -213,12 +213,26 @@
         });
 
 	map.on('locationfound', function(e) {
-	    var results = leafletPip.pointInLayer([e.latlng.lng, e.latlng.lat], datalayer, true);
+		var e_param = {
+			'latlng' : {
+				lat:e.latlng.lat,
+				lng:e.latlng.lng
+			},
+			'target' : {
+				feature : {
+					properties : {
+						store : undefined
+					}
+				}
+			}
+		};
+	    var results = leafletPip.pointInLayer([e_param.latlng.lng, e_param.latlng.lat], datalayer, true);
 	    if (results != "") {
-	  	collectData(e);
+		e_param.target.feature.properties.store = results[0].feature.properties.store
+	  	collectData(e_param);
 		  }
 	    else {
-		getData(e);  
+		getData(e_param);  
 	    }
 	});
     }
