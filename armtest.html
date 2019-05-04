@@ -218,6 +218,7 @@
 				lat:e.latlng.lat,
 				lng:e.latlng.lng
 			},
+			/*
 			'target' : {
 				feature : {
 					properties : {
@@ -225,6 +226,7 @@
 					}
 				}
 			}
+			*/
 		};
 	    var results = leafletPip.pointInLayer([e_param.latlng.lng, e_param.latlng.lat], datalayer, true);
 	    if (results != "") {
@@ -424,8 +426,13 @@
 				linkd += "&"+ source[value][0] + "=" + lng;
 			}
 			else {
-				if (value == 'selected_store' && e.target.feature.properties.store != undefined) {
-					linkd += "&"+ source[value][0] + "=" + e.target.feature.properties.store;
+				try {
+					var store_from_polygon = e.target.feature.properties.store;
+				} catch (error) {
+					var store_from_polygon = undefined;
+				}
+				if (value == 'selected_store' && store_from_polygon != undefined) {
+					linkd += "&"+ source[value][0] + "=" + store_from_polygon;
 				}
 				else if (source[value][1] == undefined) {
 					continue;
