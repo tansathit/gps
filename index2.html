@@ -237,7 +237,7 @@
 	});
     }
     
-    $.getJSON("geojson_may2.json",function(data){
+    $.getJSON("geojson_jun.json",function(data){
       // add GeoJSON layer to the map once the file is loaded
       datalayer = L.geoJson(data ,{
         style: function(feature) {
@@ -271,6 +271,7 @@
 		'04113 ร่วมฤดี เรสซิเดนท์' : [13.7408493505729, 100.549594759941],
 		'14118 อาคาร All Season (วิทยุ)' : [13.7395049374877, 100.54875254631],
 		'04181 พระราม2ซอย43' : [13.6722640386371, 100.456570386886],
+		'06184 สินทวี ท่าข้าม 3-4' : [13.6459242589749, 100.453174710273],
 	};
 	var markerObj = {};  
 	for (var key in stores) {
