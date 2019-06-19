@@ -364,6 +364,12 @@
 		map.setView(stores[source['selected_store'][1]], 18);
 		markerObj[source['selected_store'][1]].openPopup();
 	}
+	    else {
+		// if no selected store then get location from current instead
+		// fly from บางกอกซิตี้ to location 
+		map.setView(stores['10254 บางกอกซิตี้ - สาทร'], 14);
+		goToLocation()
+	    }
     }
     else {
 	// if no selected store then get location from current instead
